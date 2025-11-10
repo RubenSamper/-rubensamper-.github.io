@@ -1,6 +1,6 @@
 :root {
   --primary: #31326F;
-  --accent: #348E91;
+  --accent: #00796B;
   --highlight: #7CE6B3;
   --text: #000;
   --bg: #FFFFFF;
@@ -660,8 +660,8 @@ body {
   }
 
   .btn:hover {
-    background-color: var(--primary);
-    color: #111;
+    background-color: #4FB7B3;
+    color: #000;
   }
 
   .categorias {
