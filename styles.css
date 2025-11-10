@@ -124,7 +124,8 @@ body {
 
 .btn:hover,
 .btn:focus {
-  background-color: var(--accent);
+  background-color: #00796B !important;
+  color: #FFFFFF !important;
 }
 
 .hero-img {
@@ -652,8 +653,8 @@ body {
   }
 
   .btn {
-    background-color: var(--accent);
-    color: #fff;
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
     font-weight: 700;
     border: none;
     transition: background 0.3s ease;
