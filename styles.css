@@ -519,7 +519,7 @@ body {
 
 .precio {
   font-weight: bold;
-  color: var(--accent);
+  color: #00796B;
   margin-top: 0.5rem;
 }
 
@@ -648,19 +648,20 @@ body {
 
   .hero a:hover {
     background-color: var(--accent);
+    color: #fff;
   }
 
   .btn {
     background-color: var(--accent);
-    color: var(--primary);
+    color: #fff;
     font-weight: 700;
     border: none;
     transition: background 0.3s ease;
   }
 
   .btn:hover {
-    background-color: var(--accent);
-    color: #fff;
+    background-color: var(--primary);
+    color: #111;
   }
 
   .categorias {
@@ -697,14 +698,18 @@ body {
   }
 
   .boletin button {
-    background-color: var(--highlight);
-    color: #000;
+    background-color: var(--accent);
+    color: #fff;
     font-weight: 600;
   }
 
   .boletin button:hover {
-    background-color: var(--accent);
-    color: #fff;
+    background-color: var(--primary);
+    color: #111;
+  }
+
+  .boletin p {
+    color: var(--text);
   }
 
   .footer {
@@ -731,6 +736,10 @@ body {
 
   .producto-info h1 {
     color: var(--primary);
+  }
+
+  .producto-info p {
+    color: var(--text);
   }
 
   .producto-info .precio {
@@ -769,10 +778,24 @@ body {
   }
 
   .tarjeta h3 {
-    color: var(--highlight);
+    color: var(--primary);
+  }
+
+  .tarjeta p {
+    color: var(--text);
   }
 
   .precio {
+    color: var(--accent);
+  }
+
+  a {
     color: var(--primary);
+    text-decoration: underline;
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--accent);
   }
 }
