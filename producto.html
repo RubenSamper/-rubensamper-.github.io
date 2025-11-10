@@ -4,47 +4,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Keyzone | Ficha de Producto</title>
+  <meta name="description"
+    content="Keyzone RGB Pro, teclado gaming con switches mecánicos e iluminación RGB personalizable.">
+  <meta name="robots" content="index, follow">
+  <title>Keyzone RGB Pro | Teclado Gaming con Switches Mecánicos RGB</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Mooli&display=swap"
     rel="stylesheet">
 </head>
 
-<body>
-  <!-- HEADER -->
-  <header class="header">
+<body class="font-[Montserrat]">
+
+  <header role="banner"
+    class="flex flex-col md:flex-row justify-between items-center bg-[#31326F] text-white px-6 py-4 shadow-md flex-wrap gap-3">
     <div class="logo">
-      <img src="img/Keyzone.png" alt="Logo de Keyzone">
+      <img src="img/Keyzone.png" alt="Logo de Keyzone" class="w-28">
     </div>
 
-    <nav class="nav">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="busqueda.html">Categoría</a></li>
-        <li><a href="producto.html" class="active">Producto</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
+      <ul class="flex flex-wrap justify-center gap-4 font-semibold">
+        <li><a href="index.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Inicio</a></li>
+        <li><a href="busqueda.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Categoría</a></li>
+        <li><a href="producto.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Producto</a></li>
+        <li><a href="contacto.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Contacto</a></li>
       </ul>
     </nav>
 
-    <div class="actions">
-      <input type="search" placeholder="Buscar...">
-      <select>
+    <div class="flex flex-wrap justify-center items-center gap-2 w-full md:w-auto">
+      <input type="search" placeholder="Buscar..." aria-label="Buscar productos"
+        class="rounded-md px-3 py-2 text-black border border-gray-300 w-3/4 sm:w-48 md:w-56">
+      <select aria-label="Seleccionar idioma" class="rounded-md px-2 py-2 text-black border border-gray-300">
         <option>ES</option>
         <option>EN</option>
       </select>
-      <a href="carrito.html" class="carrito" title="Carrito">
-        <img src="img/carrito.png" alt="Carrito">
+      <a href="carrito.html" aria-label="Abrir carrito de compras" class="carrito">
+        <img src="img/carrito.png" alt="Icono de carrito de compras" class="w-7 h-7">
       </a>
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="producto">
-
-    <!-- Ficha principal -->
+  <main class="producto" role="main">
     <section class="producto-grid">
       <div class="producto-imagen">
-        <img src="img/mchooseg75pro.jpg" alt="Teclado Keyzone RGB Pro color principal" class="imagen-principal">
+        <img src="img/mchooseg75pro.jpg" alt="Teclado Keyzone RGB Pro con switches mecánicos e iluminación RGB"
+          class="imagen-principal">
       </div>
 
       <div class="producto-info">
@@ -56,64 +61,60 @@
           <li>Construcción en aluminio anodizado</li>
           <li>Conectividad USB-C desmontable</li>
         </ul>
-        <button class="btn">Añadir al carrito</button>
+        <button class="btn" aria-label="Añadir Keyzone RGB Pro al carrito">Añadir al carrito</button>
       </div>
     </section>
 
-    <!-- Colores del producto -->
-    <section class="galeria-producto">
+    <section class="galeria-producto" aria-label="Colores disponibles del teclado Keyzone RGB Pro">
       <h2>Colores disponibles</h2>
       <div class="miniaturas">
         <figure>
-          <img src="img/g75color1.jpg" alt="Keyzone RGB Pro - color negro" class="mini">
+          <img src="img/g75color1.jpg" alt="Keyzone RGB Pro color negro" class="mini">
           <figcaption>Negro</figcaption>
         </figure>
         <figure>
-          <img src="img/g75color2.jpg" alt="Keyzone RGB Pro - color blanco" class="mini">
+          <img src="img/g75color2.jpg" alt="Keyzone RGB Pro negro y rosa" class="mini">
           <figcaption>Negro-Rosa</figcaption>
         </figure>
         <figure>
-          <img src="img/g75color3.jpg" alt="Keyzone RGB Pro - color gris" class="mini">
-          <figcaption>Gradiante glaciar</figcaption>
+          <img src="img/g75color3.jpg" alt="Keyzone RGB Pro gradiente glaciar" class="mini">
+          <figcaption>Gradiente Glaciar</figcaption>
         </figure>
       </div>
     </section>
 
-    <!-- Productos recomendados -->
-    <section class="recomendados">
+    <section class="recomendados" aria-label="Productos recomendados">
       <h2>También te puede interesar</h2>
       <div class="grid">
         <article>
-          <img src="img/mchooseace68.jpg" alt="Teclado Keyzone ACE68">
+          <img src="img/mchooseace68.jpg" alt="Teclado Keyzone ACE68 con switches magnéticos" loading="lazy">
           <h3>Teclado Keyzone ACE68</h3>
           <p>Switches magnéticos y retroiluminación completa.</p>
+          <a href="producto.html" class="text-[#31326F] underline hover:text-[#4FB7B3]">Ver producto</a>
         </article>
         <article>
-          <img src="img/reddragon.jpg" alt="Teclado Keyzone K728 PRO">
+          <img src="img/reddragon.jpg" alt="Teclado Keyzone K728 PRO con switches lineales" loading="lazy">
           <h3>Teclado Keyzone K728 PRO</h3>
-          <p>Switcheo lineal ultra silencioso</p>
+          <p>Switcheo lineal ultra silencioso.</p>
+          <a href="producto.html" class="text-[#31326F] underline hover:text-[#4FB7B3]">Ver producto</a>
         </article>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="socials">
-      <a href="#" class="social-link">
-        <img src="img/instagram.png" alt="Instagram">
-        Instagram
+  <footer class="footer bg-[#31326F] text-white text-center py-8 px-6 text-sm" role="contentinfo"
+    aria-label="Pie de página Keyzone">
+    <div class="socials flex justify-center gap-6 flex-wrap mb-4">
+      <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
+        <img src="img/instagram.png" alt="" aria-hidden="true" class="w-5 h-5 invert">Instagram
       </a>
-      <a href="#" class="social-link">
-        <img src="img/tiktok.png" alt="TikTok">
-        TikTok
+      <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
+        <img src="img/tiktok.png" alt="" aria-hidden="true" class="w-5 h-5 invert">TikTok
       </a>
-      <a href="#" class="social-link">
-        <img src="img/facebook.png" alt="Facebook">
-        Facebook
+      <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
+        <img src="img/facebook.png" alt="" aria-hidden="true" class="w-5 h-5 invert">Facebook
       </a>
     </div>
-
     <p>Almería, España | contacto@keyzone.com</p>
     <p>© 2025 Keyzone. Todos los derechos reservados.</p>
   </footer>

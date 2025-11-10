@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keyzone | Teclados Gaming</title>
+    <meta name="description"
+        content="Keyzone ofrece teclados gaming con switches mecánicos, retroiluminación RGB y diseños compactos.">
+    <meta name="robots" content="index, follow">
+    <title>Keyzone | Teclados Gaming con Switches Mecánicos RGB</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="styles.css">
 
@@ -12,97 +17,128 @@
         rel="stylesheet">
 </head>
 
-<body>
-    <header class="header">
+<body class="font-[Montserrat]">
+    <header class="header flex flex-col md:flex-row justify-between items-center px-6 py-4 shadow-md flex-wrap gap-3">
+
         <div class="logo">
-            <img src="img/Keyzone.png" alt="Logo de Keyzone">
+            <img src="img/Keyzone.png" alt="Logo de Keyzone" class="w-28">
         </div>
 
-        <nav class="nav">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="busqueda.html">Categoría</a></li>
-                <li><a href="producto.html">Producto</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
+        <nav class="nav" role="navigation" aria-label="Navegación principal">
+            <ul class="flex flex-wrap justify-center gap-4 font-semibold">
+                <li><a href="index.html" class="hover:text-[#A8FBD3]">Inicio</a></li>
+                <li><a href="busqueda.html" class="hover:text-[#A8FBD3]">Categoría</a></li>
+                <li><a href="producto.html" class="hover:text-[#A8FBD3]">Producto</a></li>
+                <li><a href="contacto.html" class="hover:text-[#A8FBD3]">Contacto</a></li>
             </ul>
         </nav>
 
-        <div class="actions">
-            <input type="search" placeholder="Buscar...">
-            <select>
+        <div class="flex flex-wrap justify-center items-center gap-2 w-full md:w-auto">
+            <input type="search" placeholder="Buscar..."
+                class="rounded-md px-3 py-2 text-black border border-gray-300 w-3/4 sm:w-48 md:w-56">
+            <select aria-label="Seleccionar idioma" class="rounded-md px-2 py-2 text-black border border-gray-300">
                 <option>ES</option>
                 <option>EN</option>
             </select>
-            <a href="carrito.html" class="carrito" title="Carrito">
-                <img src="img/carrito.png" alt="Carrito">
+            <a href="carrito.html" aria-label="Abrir carrito de compras" class="carrito">
+                <img src="img/carrito.png" alt="Carrito" class="w-7 h-7">
             </a>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Domina cada partida con el teclado perfecto</h1>
-            <p>Keyzone te ofrece teclados gaming con switches de alta precisión, iluminación RGB y diseños compactos
-                para rendir al máximo.</p>
-            <a href="#" class="btn">Ver producto destacado</a>
+    <section class="hero grid grid-cols-1 md:grid-cols-2 items-center gap-6 p-8">
+        <div class="hero-text space-y-4">
+            <h1 class="text-[#31326F] font-[Mooli] text-3xl md:text-4xl font-bold">
+                Domina cada partida con el teclado perfecto
+            </h1>
+
+            <h2 class="sr-only">Teclados gaming con switches mecánicos y retroiluminación RGB</h2>
+
+
+            <p class="text-gray-800">Keyzone te ofrece teclados gaming con switches de alta precisión, iluminación RGB y
+                diseños compactos para rendir al máximo.</p>
+            <a href="#"
+                class="bg-[#31326F] hover:bg-[#4FB7B3] text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all duration-300 inline-block">
+                Ver producto destacado
+            </a>
+
+            <p class="mt-4">
+                <a href="producto.html" class="text-[#31326F] underline hover:text-[#4FB7B3]">
+                    Descubre nuestro teclado gaming RGB con switches mecánicos
+                </a>
+            </p>
+
         </div>
-        <img src="img/tecladorgb.jpg" alt="Teclado gaming con luces RGB" class="hero-img">
+        <img src="img/tecladorgb.jpg" alt="Teclado gaming con switches mecánicos y retroiluminación RGB de Keyzone"
+            class="hero-img rounded-lg shadow-lg w-full max-w-lg mx-auto">
     </section>
 
     <main>
-        <section class="categorias">
-            <h2>Categorías</h2>
-            <div class="categoria-grid">
-                <article class="categoria-item">
-                    <img src="img/tecladomecanico.jpg" alt="Teclados mecánicos" />
-                    <h3>Teclados Mecánicos</h3>
+        <section class="categorias text-center py-10 px-6">
+            <h2 class="text-[#31326F] font-[Mooli] text-3xl mb-6">Categorías</h2>
+
+            <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 mt-6 max-w-6xl mx-auto">
+                <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition p-4">
+                    <img src="img/tecladomecanico.jpg" alt="Teclados mecánicos"
+                        class="rounded-lg mb-3 w-full h-48 object-cover">
+                    <h3 class="text-[#31326F] font-semibold text-lg">Teclados Mecánicos</h3>
                 </article>
-                <article class="categoria-item">
-                    <img src="img/tecladowooting.jpg" alt="Teclados Hall effect" />
-                    <h3>Teclados Hall Effect</h3>
+
+                <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition p-4">
+                    <img src="img/tecladowooting.jpg" alt="Teclados Hall effect"
+                        class="rounded-lg mb-3 w-full h-48 object-cover">
+                    <h3 class="text-[#31326F] font-semibold text-lg">Teclados Hall Effect</h3>
                 </article>
-                <article class="categoria-item">
-                    <img src="img/switch.jpg" alt="Switches" />
-                    <h3>Switches</h3>
+
+                <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition p-4">
+                    <img src="img/switch.jpg" alt="Switches" class="rounded-lg mb-3 w-full h-48 object-cover">
+                    <h3 class="text-[#31326F] font-semibold text-lg">Switches</h3>
                 </article>
             </div>
         </section>
 
-        <section class="highlight">
-            <p>Envíos gratis en compras superiores a 90 €</p>
+        <section class="bg-[#A8FBD3] text-[#31326F] text-center py-4 font-semibold shadow-md">
+            Envíos gratis en compras superiores a 90 €
         </section>
 
-        <section class="boletin">
-            <h2>Suscríbete a nuestras ofertas</h2>
-            <p>Recibe noticias, lanzamientos exclusivos y descuentos especiales directamente
+        <section class="boletin text-center py-12 px-6">
+            <h2 class="text-[#31326F] font-[Mooli] text-3xl mb-4">Suscríbete a nuestras ofertas</h2>
+            <p class="text-gray-700 mb-6">Recibe noticias, lanzamientos exclusivos y descuentos especiales directamente
                 en tu bandeja.</p>
-            <form>
-                <input type="text" placeholder="Tu nombre" required>
-                <input type="email" placeholder="Tu correo electrónico" required>
-                <button type="submit">Suscribirme</button>
+            <form class="flex flex-col items-center gap-3" aria-label="Formulario de suscripción al boletín">
+                <label for="nombre">Tu nombre</label>
+                <input id="nombre" type="text" placeholder="Tu nombre" required
+                    class="border border-gray-300 rounded-md px-4 py-2 w-80 max-w-full">
+                <label for="correo">Tu correo electrónico</label>
+                <input id="correo" type="email" placeholder="Tu correo electrónico" required
+                    class="border border-gray-300 rounded-md px-4 py-2 w-80 max-w-full">
+                <button type="submit" class="btn px-6 py-2 rounded-lg font-semibold transition">
+
+                    Suscribirme
+                </button>
             </form>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="socials">
-            <a href="#" class="social-link">
-                <img src="img/instagram.png" alt="Instagram">
+    <footer class="footer bg-[#31326F] text-white text-center py-8 px-6 text-sm" role="contentinfo" aria-label="Pie de página Keyzone">
+        <div class="socials flex justify-center gap-6 flex-wrap mb-4">
+            <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
+                <img src="img/instagram.png" alt="" aria-hidden="true" class="w-5 h-5 invert">
                 Instagram
             </a>
-            <a href="#" class="social-link">
-                <img src="img/tiktok.png" alt="TikTok">
+            <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
+                <img src="img/tiktok.png" alt="" aria-hidden="true" class="w-5 h-5 invert">
                 TikTok
             </a>
-            <a href="#" class="social-link">
-                <img src="img/facebook.png" alt="Facebook">
+            <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
+                <img src="img/facebook.png" alt="" aria-hidden="true" class="w-5 h-5 invert">
                 Facebook
             </a>
         </div>
-
         <p>Almería, España | contacto@keyzone.com</p>
         <p>© 2025 Keyzone. Todos los derechos reservados.</p>
     </footer>
+
 </body>
 
 </html>

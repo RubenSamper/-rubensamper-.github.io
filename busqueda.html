@@ -4,94 +4,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keyzone | Resultados de búsqueda</title>
+    <meta name="description"
+        content="Resultados de búsqueda de teclados gaming Keyzone con switches mecánicos e iluminación RGB.">
+    <meta name="robots" content="index, follow">
+    <title>Resultados de búsqueda | Teclados Gaming Keyzone</title>
 
-    <!-- Fuentes y CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Mooli&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-    <!-- HEADER -->
-     <header class="header">
-  <div class="logo">
-    <img src="img/Keyzone.png" alt="Logo de Keyzone">
-  </div>
+<body class="font-[Montserrat]">
+    <header role="banner"
+        class="flex flex-col md:flex-row justify-between items-center bg-[#31326F] text-white px-6 py-4 shadow-md flex-wrap gap-3">
+        <div class="logo">
+            <img src="img/Keyzone.png" alt="Logo de Keyzone" class="w-28">
+        </div>
 
-  <nav class="nav">
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="busqueda.html">Categoría</a></li>
-      <li><a href="producto.html">Producto</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-  </nav>
+        <nav class="nav" role="navigation" aria-label="Navegación principal">
+            <ul class="flex flex-wrap justify-center gap-4 font-semibold">
+                <li><a href="index.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Inicio</a></li>
+                <li><a href="busqueda.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Categoría</a>
+                </li>
+                <li><a href="producto.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Producto</a>
+                </li>
+                <li><a href="contacto.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Contacto</a>
+                </li>
+            </ul>
+        </nav>
 
-  <div class="actions">
-    <input type="search" placeholder="Buscar...">
-    <select>
-      <option>ES</option>
-      <option>EN</option>
-    </select>
-    <a href="carrito.html" class="carrito" title="Carrito">
-      <img src="img/carrito.png" alt="Carrito">
-    </a>
-  </div>
-</header>
+        <div class="flex flex-wrap justify-center items-center gap-2 w-full md:w-auto">
+            <input type="search" placeholder="Buscar..." aria-label="Buscar productos"
+                class="rounded-md px-3 py-2 text-black border border-gray-300 w-3/4 sm:w-48 md:w-56">
+            <select aria-label="Seleccionar idioma" class="rounded-md px-2 py-2 text-black border border-gray-300">
+                <option>ES</option>
+                <option>EN</option>
+            </select>
+            <a href="carrito.html" aria-label="Abrir carrito de compras" class="carrito">
+                <img src="img/carrito.png" alt="Icono del carrito de compras" class="w-7 h-7">
+            </a>
+        </div>
+    </header>
 
-    <!-- MAIN -->
-    <main class="busqueda">
-        <h1>Resultados de búsqueda: “teclado”</h1>
+    <main class="busqueda py-10 px-6" role="main">
+        <h1 class="text-center text-[#31326F] font-[Mooli] text-3xl mb-10">Resultados de búsqueda: “teclado”</h1>
 
-        <div class="resultados">
-            <article class="tarjeta">
-                <img src="img/mchooseace68.jpg" alt="Teclado Keyzone ACE68">
-                <h3>Teclado Keyzone ACE68</h3>
-                <p>Switches magnéticos y retroiluminación completa.</p>
-                <span class="precio">89,99 €</span>
+        <div class="resultados flex flex-wrap justify-center gap-6">
+            <article class="tarjeta bg-[#F8F9FB] rounded-lg shadow-md hover:shadow-lg transition p-4 text-center w-72"
+                aria-label="Teclado Keyzone ACE68">
+                <img src="img/mchooseace68.jpg" alt="Teclado Keyzone ACE68 con switches magnéticos e iluminación RGB"
+                    class="rounded-md w-full h-48 object-cover mb-3">
+                <h3 class="text-[#31326F] font-semibold text-lg">Teclado Keyzone ACE68</h3>
+                <p class="text-gray-700 mt-1">Switches magnéticos y retroiluminación completa.</p>
+                <span class="text-[#4FB7B3] font-bold block mt-2">89,99 €</span>
             </article>
 
-            <article class="tarjeta">
-                <img src="img/mchooseg75pro.jpg" alt="Teclado Keyzone G75 PRO">
-                <h3>Teclado keyzone G75 PRO</h3>
-                <p>Tamaño compacto, ideal para viajar.</p>
-                <span class="precio">59,99 €</span>
+            <article class="tarjeta bg-[#F8F9FB] rounded-lg shadow-md hover:shadow-lg transition p-4 text-center w-72"
+                aria-label="Teclado Keyzone G75 PRO">
+                <img src="img/mchooseg75pro.jpg" alt="Teclado Keyzone G75 PRO compacto con retroiluminación RGB"
+                    class="rounded-md w-full h-48 object-cover mb-3">
+                <h3 class="text-[#31326F] font-semibold text-lg">Teclado Keyzone G75 PRO</h3>
+                <p class="text-gray-700 mt-1">Tamaño compacto, ideal para viajar.</p>
+                <span class="text-[#4FB7B3] font-bold block mt-2">59,99 €</span>
             </article>
 
-            <article class="tarjeta">
-                <img src="img/mchoosex75.jpg" alt="Teclado Keyzone X75 PRO">
-                <h3>Teclado Keyzone X75 PRO</h3>
-                <p>Conectividad Bluetooth sin latencia.</p>
-                <span class="precio">99,99 €</span>
+            <article class="tarjeta bg-[#F8F9FB] rounded-lg shadow-md hover:shadow-lg transition p-4 text-center w-72"
+                aria-label="Teclado Keyzone X75 PRO">
+                <img src="img/mchoosex75.jpg"
+                    alt="Teclado Keyzone X75 PRO con conectividad Bluetooth y switches mecánicos"
+                    class="rounded-md w-full h-48 object-cover mb-3">
+                <h3 class="text-[#31326F] font-semibold text-lg">Teclado Keyzone X75 PRO</h3>
+                <p class="text-gray-700 mt-1">Conectividad Bluetooth sin latencia.</p>
+                <span class="text-[#4FB7B3] font-bold block mt-2">99,99 €</span>
             </article>
 
-            <article class="tarjeta">
-                <img src="img/reddragon.jpg" alt="Teclado Keyzone K728 PRO">
-                <h3>Keyzone K728 PRO</h3>
-                <p>Switcheo lineal ultra silencioso.</p>
-                <span class="precio">79,99 €</span>
+            <article class="tarjeta bg-[#F8F9FB] rounded-lg shadow-md hover:shadow-lg transition p-4 text-center w-72"
+                aria-label="Teclado Keyzone K728 PRO">
+                <img src="img/reddragon.jpg" alt="Teclado Keyzone K728 PRO con switches lineales silenciosos"
+                    class="rounded-md w-full h-48 object-cover mb-3">
+                <h3 class="text-[#31326F] font-semibold text-lg">Keyzone K728 PRO</h3>
+                <p class="text-gray-700 mt-1">Switcheo lineal ultra silencioso.</p>
+                <span class="text-[#4FB7B3] font-bold block mt-2">79,99 €</span>
             </article>
         </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="socials">
-            <a href="#" class="social-link">
-                <img src="img/instagram.png" alt="Instagram">
-                Instagram
+    <footer class="footer bg-[#31326F] text-white text-center py-8 px-6 text-sm" role="contentinfo"
+        aria-label="Pie de página Keyzone">
+        <div class="socials flex justify-center gap-6 flex-wrap mb-4">
+            <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
+                <img src="img/instagram.png" alt="" aria-hidden="true" class="w-5 h-5 invert">Instagram
             </a>
-            <a href="#" class="social-link">
-                <img src="img/tiktok.png" alt="TikTok">
-                TikTok
+            <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
+                <img src="img/tiktok.png" alt="" aria-hidden="true" class="w-5 h-5 invert">TikTok
             </a>
-            <a href="#" class="social-link">
-                <img src="img/facebook.png" alt="Facebook">
-                Facebook
+            <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
+                <img src="img/facebook.png" alt="" aria-hidden="true" class="w-5 h-5 invert">Facebook
             </a>
         </div>
-
         <p>Almería, España | contacto@keyzone.com</p>
         <p>© 2025 Keyzone. Todos los derechos reservados.</p>
     </footer>
