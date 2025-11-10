@@ -1,7 +1,7 @@
 :root {
   --primary: #31326F;
-  --accent: #4FB7B3;
-  --highlight: #A8FBD3;
+  --accent: #348E91;
+  --highlight: #7CE6B3;
   --text: #000;
   --bg: #FFFFFF;
   --gray: #F8F9FB;
@@ -13,7 +13,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -118,6 +119,7 @@ body {
   text-decoration: none;
   font-weight: bold;
   transition: background 0.3s;
+  display: inline-block;
 }
 
 .btn:hover,
@@ -323,6 +325,16 @@ body {
   font-weight: 500;
 }
 
+.producto-info .btn {
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .producto-info .btn {
+    margin-top: 1.5rem;
+  }
+}
+
 .galeria-producto {
   margin-top: 3rem;
   background-color: #fff;
@@ -382,7 +394,6 @@ body {
   margin-top: 2.5rem;
 }
 
-
 .recomendados h2 {
   text-align: center;
   font-family: var(--font-title);
@@ -436,6 +447,16 @@ body {
   .recomendados article {
     width: 90%;
   }
+
+  .producto-info {
+    text-align: center;
+  }
+
+  .producto-info .btn {
+    display: inline-block;
+    margin-top: 1rem;
+  }
+
 }
 
 .busqueda {
@@ -553,5 +574,198 @@ body {
 
   .boletin input {
     width: 90%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #A8FBD3;
+    --accent: #4FB7B3;
+    --highlight: #1E1E4A;
+    --text: #EDEDED;
+    --bg: #121212;
+    --gray: #1E1E1E;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+  }
+
+  .header {
+    background-color: var(--highlight);
+    color: var(--text);
+  }
+
+  .nav a {
+    color: var(--text);
+  }
+
+  .nav a:hover,
+  .nav a:focus {
+    color: var(--primary);
+  }
+
+  .actions input,
+  .actions select {
+    background: var(--gray);
+    color: var(--text);
+    border: 1px solid #333;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 2rem;
+    background: linear-gradient(90deg, #1E1E1E 0%, #1E1E4A 100%);
+  }
+
+  .hero-text h1 {
+    font-family: var(--font-title);
+    color: var(--primary);
+  }
+
+  .hero-text p {
+    color: var(--text);
+  }
+
+  .hero a {
+    background-color: var(--primary);
+    color: #111;
+  }
+
+  .hero a:hover {
+    background-color: var(--accent);
+  }
+
+  .btn {
+    background-color: var(--accent);
+    color: var(--primary);
+    font-weight: 700;
+    border: none;
+    transition: background 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: var(--accent);
+    color: #fff;
+  }
+
+  .categorias {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background-color: var(--bg);
+  }
+
+  .categoria-item {
+    background: var(--gray);
+    color: var(--text);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 3px 8px rgba(255, 255, 255, 0.05);
+  }
+
+  .categoria-item h3 {
+    color: var(--primary);
+  }
+
+  .highlight {
+    background-color: var(--highlight);
+    color: var(--primary);
+  }
+
+  .boletin input {
+    background-color: #2B2B2B;
+    color: var(--text);
+    border: 1px solid #4FB7B3;
+  }
+
+  .boletin input::placeholder {
+    color: #B0B0B0;
+  }
+
+  .boletin button {
+    background-color: var(--highlight);
+    color: #000;
+    font-weight: 600;
+  }
+
+  .boletin button:hover {
+    background-color: var(--accent);
+    color: #fff;
+  }
+
+  .footer {
+    background-color: var(--highlight);
+    color: var(--text);
+  }
+
+  .footer a {
+    color: var(--primary);
+  }
+
+  .footer a:hover {
+    color: var(--accent);
+  }
+
+  .producto {
+    background-color: var(--bg);
+  }
+
+  .producto-grid {
+    background: var(--gray);
+    color: var(--text);
+  }
+
+  .producto-info h1 {
+    color: var(--primary);
+  }
+
+  .producto-info .precio {
+    color: var(--accent);
+  }
+
+  .galeria-producto {
+    background: var(--gray);
+    color: var(--text);
+  }
+
+  .miniaturas figure {
+    background: #2A2A2A;
+  }
+
+  .miniaturas figure:hover {
+    background: var(--highlight);
+  }
+
+  .recomendados {
+    background: var(--highlight);
+  }
+
+  .recomendados article {
+    background: var(--gray);
+    color: var(--text);
+  }
+
+  .busqueda {
+    background-color: var(--bg);
+  }
+
+  .tarjeta {
+    background: var(--gray);
+    color: var(--text);
+  }
+
+  .tarjeta h3 {
+    color: var(--highlight);
+  }
+
+  .precio {
+    color: var(--primary);
   }
 }
