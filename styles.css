@@ -596,7 +596,6 @@ body {
   }
 
   body {
-    margin: 0;
     background: var(--bg);
     color: var(--text);
     font-family: var(--font-body);
@@ -653,16 +652,17 @@ body {
   }
 
   .btn {
-    background-color: #000000 !important;
-    color: #FFFFFF !important;
+    background-color: #000 !important;
+    color: #fff !important;
     font-weight: 700;
     border: none;
     transition: background 0.3s ease;
   }
 
-  .btn:hover {
-    background-color: #4FB7B3;
-    color: #000;
+  .btn:hover,
+  .btn:focus-visible {
+    background-color: #00796B !important;
+    color: #fff !important;
   }
 
   .categorias {
@@ -774,20 +774,36 @@ body {
   }
 
   .tarjeta {
-    background: var(--gray);
-    color: var(--text);
+    background: #1E1E1E !important;
+    color: #FFFFFF !important;
+    border: 1px solid #2A2A2A;
   }
 
   .tarjeta h3 {
-    color: var(--primary);
+    color: #A8FBD3 !important;
   }
 
   .tarjeta p {
-    color: var(--text);
+    color: #E0E0E0 !important;
   }
 
   .precio {
-    color: var(--accent);
+    color: #4FB7B3 !important;
+    font-weight: bold;
+  }
+
+  main.busqueda {
+    background-color: #121212 !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: var(--primary) !important;
+  }
+
+  h2.text-center {
+    color: #A8FBD3 !important;
   }
 
   a {
