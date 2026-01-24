@@ -21,7 +21,39 @@
     <header class="header flex flex-col md:flex-row justify-between items-center px-6 py-4 shadow-md flex-wrap gap-3">
 
         <div class="logo">
-            <img src="img/Keyzone.png" alt="Logo de Keyzone" class="w-28">
+            <svg width="63.654mm" height="15.486mm" version="1.1" viewBox="0 0 63.654 15.486"
+                xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(-22.225 -94.721)" stroke-width=".26458">
+                    <text x="43.415443" y="105.98149" fill="#000000" font-size="8.8194px" xml:space="preserve">
+                        <tspan x="43.415443" y="105.98149" fill="#ef5d5d" font-family="sans-serif" font-size="8.8194px"
+                            font-weight="bold" stroke="#781818" stroke-width=".26458">KeyZone</tspan>
+                    </text>
+                    <g>
+                        <rect x="22.225" y="94.721" width="19.018" height="15.486" fill="#f4ccf4" />
+                        <g stroke="#be4cba">
+                            <rect x="24.602" y="96.555" width="5.9091" height="11.479" fill="#f4ccf4" />
+                            <path d="m25.757 98.932h3.6677" fill="#000080" />
+                            <path d="m25.793 100.15h3.6677" fill="#000080" />
+                            <ellipse cx="26.462" cy="103.65" rx=".45626" ry=".43224" fill="#f4ccf4" />
+                            <ellipse cx="28.623" cy="103.65" rx=".45626" ry=".43224" fill="#f4ccf4" />
+                        </g>
+                    </g>
+                    <g fill="#000080" stroke="#be4cba">
+                        <ellipse cx="25.573" cy="105.8" rx=".12007" ry=".56432" />
+                        <ellipse cx="26.318" cy="105.8" rx=".12007" ry=".56432" />
+                        <ellipse cx="27.086" cy="105.8" rx=".12007" ry=".56432" />
+                        <ellipse cx="27.831" cy="105.8" rx=".12007" ry=".56432" />
+                        <ellipse cx="28.575" cy="105.8" rx=".12007" ry=".56432" />
+                        <ellipse cx="29.368" cy="105.8" rx=".12007" ry=".56432" />
+                    </g>
+                    <g fill="#f4ccf4" stroke="#be4cba">
+                        <rect x="30.64" y="99.066" width="7.9245" height="5.235" />
+                        <ellipse cx="34.602" cy="105.99" rx=".45626" ry="1.5489" />
+                        <rect x="31.241" y="106.8" width="7.036" height=".72041" />
+                    </g>
+                </g>
+            </svg>
+
         </div>
 
         <nav class="nav" role="navigation" aria-label="Navegación principal">
@@ -29,7 +61,8 @@
                 <li><a href="index.html" class="hover:text-[#A8FBD3]">Inicio</a></li>
                 <li><a href="busqueda.html" class="hover:text-[#A8FBD3]">Categoría</a></li>
                 <li><a href="producto.html" class="hover:text-[#A8FBD3]">Producto</a></li>
-                <li><a href="contacto.html" class="hover:text-[#A8FBD3]">Contacto</a></li>
+                <li><a href="contacto.html"
+                        class="hover:text-[#A8FBD3] inline-flex items-center gap-2 whitespace-nowrap">Contacto</a></li>
             </ul>
         </nav>
 
@@ -41,37 +74,51 @@
                 <option>EN</option>
             </select>
             <a href="carrito.html" aria-label="Abrir carrito de compras" class="carrito">
-                <img src="img/carrito.png" alt="Carrito" class="w-7 h-7">
+                <img src="img/iconos/carrito.svg" alt="Carrito" class="w-7 h-7">
             </a>
         </div>
     </header>
 
-    <section class="hero grid grid-cols-1 md:grid-cols-2 items-center gap-6 p-8">
-        <div class="hero-text space-y-4">
-            <h1 class="text-[#31326F] font-[Mooli] text-3xl md:text-4xl font-bold">
-                Domina cada partida con el teclado perfecto
-            </h1>
+    <figure class="hero-montaje" aria-label="Hero Keyzone">
+        <picture>
+            <source srcset="
+        img/hero/tecladoOpenVerse-PEQUENIO.jpg 450w,
+        img/hero/tecladoOpenVerse-MEDIANO.jpg 1200w,
+        img/hero/tecladoOpenVerse-GRANDE.jpg 2000w
+      " sizes="100vw">
+            <img src="img/hero/tecladoOpenVerse-MEDIANO.jpg" alt="" aria-hidden="true" class="hero-bg" decoding="async">
+        </picture>
+        <div class="hero-overlay" aria-hidden="true"></div>
 
-            <h2 class="sr-only">Teclados gaming con switches mecánicos y retroiluminación RGB</h2>
+        <div class="hero-content">
+            <h1>Domina cada partida con el teclado perfecto</h1>
+            <p>Keyzone te ofrece teclados gaming con switches de alta precisión, iluminación RGB y diseños compactos
+                para rendir al máximo.</p>
 
-
-            <p class="text-gray-800">Keyzone te ofrece teclados gaming con switches de alta precisión, iluminación RGB y
-                diseños compactos para rendir al máximo.</p>
-            <a href="#"
-                class="bg-[#31326F] hover:bg-[#4FB7B3] text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all duration-300 inline-block">
+            <a href="producto.html" class="hero-btn">
                 Ver producto destacado
+                <svg width="8mm" height="8mm" version="1.1" viewBox="0 0 198 181" xmlns="http://www.w3.org/2000/svg">
+                    <g fill-opacity="0" stroke="currentColor">
+                        <path d="m8.082 172.01s71.426-240.32 182.01-6.4187" stroke-width="16.857" />
+                        <g stroke-width="16.858">
+                            <ellipse cx="95.874" cy="141.69" rx="30.491" ry="30.684" />
+                            <path d="m91.546 0.45059c1.8642 46.494 1.8642 46.494 1.8642 46.494" />
+                            <path d="m6.8709 39.97 29.17 37.367" />
+                            <path d="m185.7 41.176-39.316 27.724" />
+                        </g>
+                    </g>
+                </svg>
+
             </a>
-
-            <p class="sr-only">
-                <a href="producto.html" class="text-[#31326F] underline hover:text-[#4FB7B3]">
-                    Descubre nuestro teclado gaming RGB con switches mecánicos
+            <figcaption class="text-sm p-3 text-white/80">
+                Foto con licencia CC0 / Dominio público —
+                <a class="underline text-white hover:text-[#7CE6B3]" target="_blank" rel="noopener"
+                    href="https://flic.kr/p/8JXnq7">
+                    Fuente (Flickr)
                 </a>
-            </p>
-
+            </figcaption>
         </div>
-        <img src="img/tecladorgb.jpg" alt="Teclado gaming con switches mecánicos y retroiluminación RGB de Keyzone"
-            class="hero-img rounded-lg shadow-lg w-full max-w-lg mx-auto">
-    </section>
+    </figure>
 
     <main>
         <section class="categorias text-center py-10 px-6">
@@ -79,21 +126,22 @@
 
             <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 mt-6 max-w-6xl mx-auto">
                 <article class="bg-white dark:bg-[var(--gray)] rounded-xl shadow-md hover:shadow-lg transition p-4">
-                    <img src="img/tecladomecanico.jpg" alt="Teclados mecánicos"
+                    <img src="img/secciones/tecladomecanico.jpg" alt="Teclados mecánicos"
                         class="rounded-lg mb-3 w-full h-48 object-cover">
-                    <h3 class="text-[var(--primary)] dark:text-[var(--accent)] font-semibold text-lg">Teclados Mecánicos
+                    <h3 class="text-[var(--primary)] dark:text-[var(--accent)] font-semibold text-lg">Teclados
+                        Mecánicos
                     </h3>
                 </article>
 
                 <article class="bg-white dark:bg-[var(--gray)] rounded-xl shadow-md hover:shadow-lg transition p-4">
-                    <img src="img/tecladowooting.jpg" alt="Teclados Hall effect"
+                    <img src="img/secciones/tecladowooting.jpg" alt="Teclados Hall effect"
                         class="rounded-lg mb-3 w-full h-48 object-cover">
                     <h3 class="text-[var(--primary)] dark:text-[var(--accent)] font-semibold text-lg">Teclados Hall
                         Effect</h3>
                 </article>
 
                 <article class="bg-white dark:bg-[var(--gray)] rounded-xl shadow-md hover:shadow-lg transition p-4">
-                    <img src="img/switch.jpg" alt="Switches" class="rounded-lg mb-3 w-full h-48 object-cover">
+                    <img src="img/secciones/switch.jpg" alt="Switches" class="rounded-lg mb-3 w-full h-48 object-cover">
                     <h3 class="text-[var(--primary)] dark:text-[var(--accent)] font-semibold text-lg">Switches</h3>
                 </article>
             </div>
@@ -128,20 +176,24 @@
         aria-label="Pie de página Keyzone">
         <div class="socials flex justify-center gap-6 flex-wrap mb-4">
             <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
-                <img src="img/instagram.png" alt="" aria-hidden="true" class="w-5 h-5 invert">
+                <img src="img/redes/instagram.png" alt="" aria-hidden="true" class="w-5 h-5 invert">
                 Instagram
             </a>
             <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
-                <img src="img/tiktok.png" alt="" aria-hidden="true" class="w-5 h-5 invert">
+                <img src="img/redes/tiktok.png" alt="" aria-hidden="true" class="w-5 h-5 invert">
                 TikTok
             </a>
             <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
-                <img src="img/facebook.png" alt="" aria-hidden="true" class="w-5 h-5 invert">
+                <img src="img/redes/facebook.png" alt="" aria-hidden="true" class="w-5 h-5 invert">
                 Facebook
             </a>
         </div>
         <p>Almería, España | contacto@keyzone.com</p>
         <p>© 2025 Keyzone. Todos los derechos reservados.</p>
+
+        <p class="mt-3">
+            <a href="contacto.html" class="underline hover:text-[#A8FBD3]">Contacta con nosotros</a>
+        </p>
     </footer>
 
 </body>

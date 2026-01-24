@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cesta | Keyzone</title>
+
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Mooli&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body class="font-[Montserrat] bg-[var(--bg)] text-[var(--text)]">
+  <header role="banner"
+    class="flex flex-col md:flex-row justify-between items-center bg-[#31326F] text-white px-6 py-4 shadow-md flex-wrap gap-3">
+    <div class="logo">
+      <svg width="63.654mm" height="15.486mm" version="1.1" viewBox="0 0 63.654 15.486"
+        xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(-22.225 -94.721)" stroke-width=".26458">
+          <text x="43.415443" y="105.98149" fill="#000000" font-size="8.8194px" xml:space="preserve">
+            <tspan x="43.415443" y="105.98149" fill="#ef5d5d" font-family="sans-serif" font-size="8.8194px"
+              font-weight="bold" stroke="#781818" stroke-width=".26458">KeyZone</tspan>
+          </text>
+          <g>
+            <rect x="22.225" y="94.721" width="19.018" height="15.486" fill="#f4ccf4" />
+            <g stroke="#be4cba">
+              <rect x="24.602" y="96.555" width="5.9091" height="11.479" fill="#f4ccf4" />
+              <path d="m25.757 98.932h3.6677" fill="#000080" />
+              <path d="m25.793 100.15h3.6677" fill="#000080" />
+              <ellipse cx="26.462" cy="103.65" rx=".45626" ry=".43224" fill="#f4ccf4" />
+              <ellipse cx="28.623" cy="103.65" rx=".45626" ry=".43224" fill="#f4ccf4" />
+            </g>
+          </g>
+          <g fill="#000080" stroke="#be4cba">
+            <ellipse cx="25.573" cy="105.8" rx=".12007" ry=".56432" />
+            <ellipse cx="26.318" cy="105.8" rx=".12007" ry=".56432" />
+            <ellipse cx="27.086" cy="105.8" rx=".12007" ry=".56432" />
+            <ellipse cx="27.831" cy="105.8" rx=".12007" ry=".56432" />
+            <ellipse cx="28.575" cy="105.8" rx=".12007" ry=".56432" />
+            <ellipse cx="29.368" cy="105.8" rx=".12007" ry=".56432" />
+          </g>
+          <g fill="#f4ccf4" stroke="#be4cba">
+            <rect x="30.64" y="99.066" width="7.9245" height="5.235" />
+            <ellipse cx="34.602" cy="105.99" rx=".45626" ry="1.5489" />
+            <rect x="31.241" y="106.8" width="7.036" height=".72041" />
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
+      <ul class="flex flex-wrap justify-center gap-4 font-semibold">
+        <li><a href="index.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Inicio</a></li>
+        <li><a href="busqueda.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Categoría</a></li>
+        <li><a href="producto.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Producto</a></li>
+        <li><a href="contacto.html"
+            class="hover:text-[#A8FBD3] inline-flex items-center gap-2 whitespace-nowrap">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="flex flex-wrap justify-center items-center gap-2 w-full md:w-auto">
+      <input type="search" placeholder="Buscar..." aria-label="Buscar productos"
+        class="rounded-md px-3 py-2 text-black border border-gray-300 w-3/4 sm:w-48 md:w-56">
+      <select aria-label="Seleccionar idioma" class="rounded-md px-2 py-2 text-black border border-gray-300">
+        <option>ES</option>
+        <option>EN</option>
+      </select>
+      <a href="carrito.html" aria-label="Abrir carrito de compras" class="carrito">
+        <img src="img/iconos/carrito.svg" alt="Icono de carrito de compras" class="w-7 h-7">
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-10">
+    <h1 class="font-[Mooli] text-3xl text-[#31326F] mb-8 text-center md:text-left">Tu cesta</h1>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <section class="lg:col-span-2 bg-[var(--gray)] rounded-2xl shadow-md p-6">
+        <h2 class="text-xl font-semibold mb-4 text-[#31326F]">Productos</h2>
+        <article
+          class="flex flex-col sm:flex-row gap-4 items-start sm:items-center border border-gray-100 rounded-xl p-4">
+          <a href="img/productos/KeyzoneG75pro-GRANDE.jpg" target="_blank" rel="noopener">
+            <img src="img/productos/KeyzoneG75pro-PEQUENIO.jpg" srcset="
+            img/productos/KeyzoneG75pro-PEQUENIO.jpg 450w,
+            img/productos/KeyzoneG75pro-MEDIANO.jpg 1200w
+          " sizes="130px" alt="Teclado Keyzone G75" class="mini" loading="lazy" decoding="async">
+          </a>
+
+          <div class="flex-1">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-semibold text-lg text-gray-900">Keyzone G75 PRO</h3>
+                <p class="text-sm text-gray-500">Switches mecánicos · RGB · USB-C</p>
+              </div>
+
+              <button type="button"
+                class="inline-flex items-center gap-2 text-sm font-semibold text-red-600 hover:text-red-700"
+                aria-label="Eliminar producto de la cesta">
+                <svg width="8mm" height="8mm" version="1.1" viewBox="0 0 198 181"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <g fill-opacity="0" stroke="currentColor" stroke-width="8.9216">
+                    <ellipse cx="98.99" cy="90.483" rx="94.519" ry="86.019" />
+                    <path d="m156.24 92.477h-117.91" />
+                  </g>
+                </svg>
+
+              </button>
+            </div>
+
+            <div class="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <!-- Cantidad -->
+              <div class="inline-flex items-center gap-2">
+                <label for="qty-1" class="text-sm font-semibold text-gray-700">Cantidad</label>
+                <select id="qty-1" class="border border-gray-300 rounded-md px-2 py-1 text-sm">
+                  <option selected>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                </select>
+              </div>
+
+              <!-- Precio -->
+              <div class="text-right">
+                <p class="text-sm text-gray-500">Precio</p>
+                <p class="text-lg font-bold text-[#00695C]">59,99 €</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <aside class="bg-white rounded-2xl shadow-md p-6 h-fit">
+        <h2 class="text-xl font-semibold mb-4 text-[#31326F]">Resumen</h2>
+
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between">
+            <span class="text-gray-600">Subtotal</span>
+            <span class="font-semibold">59,99 €</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Envío</span>
+            <span class="font-semibold">Gratis</span>
+          </div>
+          <div class="border-t pt-3 flex justify-between text-base">
+            <span class="font-semibold">Total</span>
+            <span class="font-bold text-[#00695C]">59,99 €</span>
+          </div>
+        </div>
+
+        <button type="button"
+          class="mt-6 w-full bg-[#31326F] hover:bg-[#00796B] text-white font-semibold py-3 rounded-xl shadow-md transition"
+          aria-label="Pagar">
+          Pagar
+        </button>
+
+        <p class="text-xs text-gray-500 mt-3">
+          Al continuar, aceptas nuestras condiciones de compra.
+        </p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer bg-[#31326F] text-white text-center py-8 px-6 text-sm" role="contentinfo"
+    aria-label="Pie de página Keyzone">
+    <div class="socials flex justify-center gap-6 flex-wrap mb-4">
+      <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
+        <img src="img/redes/instagram.png" alt="" aria-hidden="true" class="w-5 h-5 invert">
+        Instagram
+      </a>
+      <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
+        <img src="img/redes/tiktok.png" alt="" aria-hidden="true" class="w-5 h-5 invert">
+        TikTok
+      </a>
+      <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
+        <img src="img/redes/facebook.png" alt="" aria-hidden="true" class="w-5 h-5 invert">
+        Facebook
+      </a>
+    </div>
+    <p>Almería, España | contacto@keyzone.com</p>
+    <p>© 2025 Keyzone. Todos los derechos reservados.</p>
+
+    <p class="mt-3">
+      <a href="contacto.html" class="underline hover:text-[#A8FBD3]">Contacta con nosotros</a>
+    </p>
+  </footer>
+</body>
+
+</html>

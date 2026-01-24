@@ -19,8 +19,41 @@
 
   <header role="banner"
     class="flex flex-col md:flex-row justify-between items-center bg-[#31326F] text-white px-6 py-4 shadow-md flex-wrap gap-3">
+
     <div class="logo">
-      <img src="img/Keyzone.png" alt="Logo de Keyzone" class="w-28">
+      <svg width="63.654mm" height="15.486mm" version="1.1" viewBox="0 0 63.654 15.486"
+        xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(-22.225 -94.721)" stroke-width=".26458">
+          <text x="43.415443" y="105.98149" fill="#000000" font-size="8.8194px" xml:space="preserve">
+            <tspan x="43.415443" y="105.98149" fill="#ef5d5d" font-family="sans-serif" font-size="8.8194px"
+              font-weight="bold" stroke="#781818" stroke-width=".26458">KeyZone</tspan>
+          </text>
+          <g>
+            <rect x="22.225" y="94.721" width="19.018" height="15.486" fill="#f4ccf4" />
+            <g stroke="#be4cba">
+              <rect x="24.602" y="96.555" width="5.9091" height="11.479" fill="#f4ccf4" />
+              <path d="m25.757 98.932h3.6677" fill="#000080" />
+              <path d="m25.793 100.15h3.6677" fill="#000080" />
+              <ellipse cx="26.462" cy="103.65" rx=".45626" ry=".43224" fill="#f4ccf4" />
+              <ellipse cx="28.623" cy="103.65" rx=".45626" ry=".43224" fill="#f4ccf4" />
+            </g>
+          </g>
+          <g fill="#000080" stroke="#be4cba">
+            <ellipse cx="25.573" cy="105.8" rx=".12007" ry=".56432" />
+            <ellipse cx="26.318" cy="105.8" rx=".12007" ry=".56432" />
+            <ellipse cx="27.086" cy="105.8" rx=".12007" ry=".56432" />
+            <ellipse cx="27.831" cy="105.8" rx=".12007" ry=".56432" />
+            <ellipse cx="28.575" cy="105.8" rx=".12007" ry=".56432" />
+            <ellipse cx="29.368" cy="105.8" rx=".12007" ry=".56432" />
+          </g>
+          <g fill="#f4ccf4" stroke="#be4cba">
+            <rect x="30.64" y="99.066" width="7.9245" height="5.235" />
+            <ellipse cx="34.602" cy="105.99" rx=".45626" ry="1.5489" />
+            <rect x="31.241" y="106.8" width="7.036" height=".72041" />
+          </g>
+        </g>
+      </svg>
+
     </div>
 
     <nav class="nav" role="navigation" aria-label="Navegación principal">
@@ -28,7 +61,12 @@
         <li><a href="index.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Inicio</a></li>
         <li><a href="busqueda.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Categoría</a></li>
         <li><a href="producto.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Producto</a></li>
-        <li><a href="contacto.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Contacto</a></li>
+
+        <li>
+          <a href="contacto.html" class="hover:text-[#A8FBD3] inline-flex items-center gap-2 whitespace-nowrap">
+            Contacto
+          </a>
+        </li>
       </ul>
     </nav>
 
@@ -40,16 +78,35 @@
         <option>EN</option>
       </select>
       <a href="carrito.html" aria-label="Abrir carrito de compras" class="carrito">
-        <img src="img/carrito.png" alt="Icono de carrito de compras" class="w-7 h-7">
+        <svg width="30px" height="30px" version="1.1" viewBox="0 0 198.09 180.94" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(-.0011797 -.040919)" fill-opacity="0" stroke="currentColor">
+            <rect x="3.4332" y="64.519" width="191.23" height="113.03" stroke-width="6.8641" />
+            <path d="m10.749 64.77 62.06-61.788h69.629l36.164 62.364" stroke-width="5.8825" />
+            <g stroke-width="2.9418">
+              <path d="m14.909 128.95 51.019-50.795" />
+              <path d="m15.622 165.89 91.691-91.289" />
+              <path d="m44.878 170.87c97.043-96.617 97.756-96.617 97.756-96.617" />
+              <path d="m87.691 169.45 94.545-94.13" />
+              <path d="m131.93 168.74 53.873-53.637" />
+            </g>
+          </g>
+        </svg>
       </a>
     </div>
+
   </header>
 
   <main class="producto" role="main">
     <section class="producto-grid">
       <div class="producto-imagen">
-        <img src="img/mchooseg75pro.jpg" alt="Teclado Keyzone RGB Pro con switches mecánicos e iluminación RGB"
-          class="imagen-principal">
+        <a href="img/productos/KeyzoneRGBPro-GRANDE.jpg" target="_blank" rel="noopener"><img
+            src="img/productos/KeyzoneRGBPro-MEDIANO.jpg" srcset="
+        img/productos/KeyzoneRGBPro-PEQUENIO.jpg 450w,
+        img/productos/KeyzoneRGBPro-MEDIANO.jpg 1200w,
+        img/productos/KeyzoneRGBPro-GRANDE.jpg 2000w
+      " sizes="(max-width: 768px) 320px, 450px" alt="Teclado Keyzone RGB Pro con switches mecánicos e iluminación RGB"
+            class="imagen-principal" decoding="async" loading="lazy" width="450" height="450">
+        </a>
       </div>
 
       <div class="producto-info">
@@ -61,7 +118,18 @@
           <li>Construcción en aluminio anodizado</li>
           <li>Conectividad USB-C desmontable</li>
         </ul>
-        <button class="btn" aria-label="Añadir Keyzone RGB Pro al carrito">Añadir al carrito</button>
+        <button class="btn" aria-label="Añadir Keyzone RGB Pro al carrito">
+          <span class="btn-text">Añadir al carrito</span>
+          <svg width="8mm" height="8mm" version="1.1" viewBox="0 0 198 181" xmlns="http://www.w3.org/2000/svg">
+            <g fill-opacity="0" stroke="#fff" stroke-width="8.9068">
+              <ellipse cx="99.001" cy="90.165" rx="94.545" ry="85.709" />
+              <path d="m97.296 34.709v114.89" />
+              <path d="m156.27 92.152h-117.95" />
+            </g>
+          </svg>
+
+
+        </button>
       </div>
     </section>
 
@@ -69,16 +137,30 @@
       <h2>Colores disponibles</h2>
       <div class="miniaturas">
         <figure>
-          <img src="img/g75color1.jpg" alt="Keyzone RGB Pro color negro" class="mini">
+          <a href="img/productos/g75color1-GRANDE.jpg" target="_blank" rel="noopener">
+            <img src="img/productos/g75color1-PEQUENIO.jpg" srcset="
+            img/productos/g75color1-PEQUENIO.jpg 450w,
+            img/productos/g75color1-MEDIANO.jpg 1200w
+          " sizes="130px" alt="Keyzone RGB Pro color negro" class="mini" loading="lazy" decoding="async">
+          </a>
           <figcaption>Negro</figcaption>
         </figure>
-        <figure>
-          <img src="img/g75color2.jpg" alt="Keyzone RGB Pro negro y rosa" class="mini">
+        <figure><a href="img/productos/g75color2-GRANDE.jpg" target="_blank" rel="noopener">
+            <img src="img/productos/g75color2-PEQUENIO.jpg" srcset="
+            img/productos/g75color2-PEQUENIO.jpg 450w,
+            img/productos/g75color2-MEDIANO.jpg 1200w
+          " sizes="130px" alt="Keyzone RGB Pro negro y rosa" class="mini" loading="lazy" decoding="async">
+          </a>
           <figcaption>Negro-Rosa</figcaption>
         </figure>
         <figure>
-          <img src="img/g75color3.jpg" alt="Keyzone RGB Pro gradiente glaciar" class="mini">
-          <figcaption>Gradiente Glaciar</figcaption>
+          <a href="img/productos/g75color3-GRANDE.jpg" target="_blank" rel="noopener">
+            <img src="img/productos/g75color3-PEQUENIO.jpg" srcset="
+      img/productos/g75color3-PEQUENIO.jpg 450w,
+      img/productos/g75color3-MEDIANO.jpg 1200w
+    " sizes="130px" alt="Keyzone RGB Pro gradiente glaciar" class="mini" loading="lazy" decoding="async">
+          </a>
+          <figcaption>Gradiente</figcaption>
         </figure>
       </div>
     </section>
@@ -87,16 +169,32 @@
       <h2>También te puede interesar</h2>
       <div class="grid">
         <article>
-          <img src="img/mchooseace68.jpg" alt="Teclado Keyzone ACE68 con switches magnéticos" loading="lazy">
+          <a href="img/productos/KeyzoneACE68-GRANDE.jpg" target="_blank" rel="noopener">
+            <img src="img/productos/KeyzoneACE68-PEQUENIO.jpg" srcset="
+    img/productos/KeyzoneACE68-PEQUENIO.jpg 450w,
+    img/productos/KeyzoneACE68-MEDIANO.jpg 1200w,
+    img/productos/KeyzoneACE68-GRANDE.jpg 2000w
+  " sizes="(max-width: 768px) 80vw, 180px" alt="Teclado Keyzone ACE68 con switches magnéticos" loading="lazy"
+              decoding="async"></a>
           <h3>Teclado Keyzone ACE68</h3>
           <p>Switches magnéticos y retroiluminación completa.</p>
-          <a href="producto.html" class="underline font-semibold text-[#31326F] hover:text-[#00796B] dark:text-[#A8FBD3] dark:hover:text-[#4FFFD7]">Ver producto</a>
+          <a href="producto.html"
+            class="underline font-semibold text-[#31326F] hover:text-[#00796B] dark:text-[#A8FBD3] dark:hover:text-[#4FFFD7]">Ver
+            producto</a>
         </article>
         <article>
-          <img src="img/reddragon.jpg" alt="Teclado Keyzone K728 PRO con switches lineales" loading="lazy">
+          <a href="img/productos/KeyzoneK728PRO-GRANDE.jpg" target="_blank" rel="noopener">
+            <img src="img/productos/KeyzoneK728PRO-PEQUENIO.jpg" srcset="
+    img/productos/KeyzoneK728PRO-PEQUENIO.jpg 450w,
+    img/productos/KeyzoneK728PRO-MEDIANO.jpg 1200w,
+    img/productos/KeyzoneK728PRO-GRANDE.jpg 2000w
+  " sizes="(max-width: 768px) 80vw, 180px" alt="Teclado Keyzone K728 PRO con switches lineales" loading="lazy"
+              decoding="async"></a>
           <h3>Teclado Keyzone K728 PRO</h3>
           <p>Switcheo lineal ultra silencioso.</p>
-          <a href="producto.html" class="underline font-semibold text-[#31326F] hover:text-[#00796B] dark:text-[#A8FBD3] dark:hover:text-[#4FFFD7]">Ver producto</a>
+          <a href="producto.html"
+            class="underline font-semibold text-[#31326F] hover:text-[#00796B] dark:text-[#A8FBD3] dark:hover:text-[#4FFFD7]">Ver
+            producto</a>
         </article>
       </div>
     </section>
@@ -106,17 +204,21 @@
     aria-label="Pie de página Keyzone">
     <div class="socials flex justify-center gap-6 flex-wrap mb-4">
       <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
-        <img src="img/instagram.png" alt="" aria-hidden="true" class="w-5 h-5 invert">Instagram
+        <img src="img/redes/instagram.png" alt="" aria-hidden="true" class="w-5 h-5 invert">Instagram
       </a>
       <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
-        <img src="img/tiktok.png" alt="" aria-hidden="true" class="w-5 h-5 invert">TikTok
+        <img src="img/redes/tiktok.png" alt="" aria-hidden="true" class="w-5 h-5 invert">TikTok
       </a>
       <a href="#" class="flex items-center gap-2 hover:text-[#A8FBD3] transition">
-        <img src="img/facebook.png" alt="" aria-hidden="true" class="w-5 h-5 invert">Facebook
+        <img src="img/redes/facebook.png" alt="" aria-hidden="true" class="w-5 h-5 invert">Facebook
       </a>
     </div>
     <p>Almería, España | contacto@keyzone.com</p>
     <p>© 2025 Keyzone. Todos los derechos reservados.</p>
+
+    <p class="mt-3">
+      <a href="contacto.html" class="underline hover:text-[#A8FBD3]">Contacta con nosotros</a>
+    </p>
   </footer>
 </body>
 
