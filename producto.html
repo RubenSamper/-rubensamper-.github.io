@@ -10,7 +10,7 @@
   <title>Keyzone RGB Pro | Teclado Gaming con Switches Mecánicos RGB</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Mooli&display=swap"
     rel="stylesheet">
 </head>
@@ -21,14 +21,17 @@
     class="flex flex-col md:flex-row justify-between items-center bg-[#31326F] text-white px-6 py-4 shadow-md flex-wrap gap-3">
 
     <div class="logo">
-      <svg width="63.654mm" height="15.486mm" version="1.1" viewBox="0 0 63.654 15.486"
+      <svg class="logo-svg" width="63.654mm" height="15.486mm" version="1.1" viewBox="22.225 94.721 63.654 15.486"
         xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(-22.225 -94.721)" stroke-width=".26458">
-          <text x="43.415443" y="105.98149" fill="#000000" font-size="8.8194px" xml:space="preserve">
+
+        <g stroke-width=".26458">
+          <text id="letrasKeyzone" x="43.415443" y="105.98149" fill="#000000" font-size="8.8194px" xml:space="preserve">
             <tspan x="43.415443" y="105.98149" fill="#ef5d5d" font-family="sans-serif" font-size="8.8194px"
-              font-weight="bold" stroke="#781818" stroke-width=".26458">KeyZone</tspan>
+              font-weight="bold" stroke="#781818" stroke-width=".26458">KeyZone
+            </tspan>
           </text>
-          <g>
+
+          <g id="teclado">
             <rect x="22.225" y="94.721" width="19.018" height="15.486" fill="#f4ccf4" />
             <g stroke="#be4cba">
               <rect x="24.602" y="96.555" width="5.9091" height="11.479" fill="#f4ccf4" />
@@ -38,7 +41,8 @@
               <ellipse cx="28.623" cy="103.65" rx=".45626" ry=".43224" fill="#f4ccf4" />
             </g>
           </g>
-          <g fill="#000080" stroke="#be4cba">
+
+          <g id="tecla-pequenia" fill="#000080" stroke="#be4cba">
             <ellipse cx="25.573" cy="105.8" rx=".12007" ry=".56432" />
             <ellipse cx="26.318" cy="105.8" rx=".12007" ry=".56432" />
             <ellipse cx="27.086" cy="105.8" rx=".12007" ry=".56432" />
@@ -46,14 +50,14 @@
             <ellipse cx="28.575" cy="105.8" rx=".12007" ry=".56432" />
             <ellipse cx="29.368" cy="105.8" rx=".12007" ry=".56432" />
           </g>
+
           <g fill="#f4ccf4" stroke="#be4cba">
-            <rect x="30.64" y="99.066" width="7.9245" height="5.235" />
+            <rect id="monitor" x="30.64" y="99.066" width="7.9245" height="5.235" />
             <ellipse cx="34.602" cy="105.99" rx=".45626" ry="1.5489" />
             <rect x="31.241" y="106.8" width="7.036" height=".72041" />
           </g>
         </g>
       </svg>
-
     </div>
 
     <nav class="nav" role="navigation" aria-label="Navegación principal">
@@ -168,7 +172,7 @@
     <section class="recomendados" aria-label="Productos recomendados">
       <h2>También te puede interesar</h2>
       <div class="grid">
-        <article>
+        <article id="producto-destacado1">
           <a href="img/productos/KeyzoneACE68-GRANDE.jpg" target="_blank" rel="noopener">
             <img src="img/productos/KeyzoneACE68-PEQUENIO.jpg" srcset="
     img/productos/KeyzoneACE68-PEQUENIO.jpg 450w,
@@ -178,11 +182,12 @@
               decoding="async"></a>
           <h3>Teclado Keyzone ACE68</h3>
           <p>Switches magnéticos y retroiluminación completa.</p>
-          <a href="producto.html"
+          <!-- <a href="producto.html"
             class="underline font-semibold text-[#31326F] hover:text-[#00796B] dark:text-[#A8FBD3] dark:hover:text-[#4FFFD7]">Ver
-            producto</a>
+            producto</a> -->
+          <a class="btn-ver" href="producto.html">Ver producto</a>
         </article>
-        <article>
+        <article id="producto-destacado2">
           <a href="img/productos/KeyzoneK728PRO-GRANDE.jpg" target="_blank" rel="noopener">
             <img src="img/productos/KeyzoneK728PRO-PEQUENIO.jpg" srcset="
     img/productos/KeyzoneK728PRO-PEQUENIO.jpg 450w,
@@ -192,9 +197,10 @@
               decoding="async"></a>
           <h3>Teclado Keyzone K728 PRO</h3>
           <p>Switcheo lineal ultra silencioso.</p>
-          <a href="producto.html"
+          <!-- <a href="producto.html"
             class="underline font-semibold text-[#31326F] hover:text-[#00796B] dark:text-[#A8FBD3] dark:hover:text-[#4FFFD7]">Ver
-            producto</a>
+            producto</a> -->
+          <a class="btn-ver" href="producto.html">Ver producto</a>
         </article>
       </div>
     </section>

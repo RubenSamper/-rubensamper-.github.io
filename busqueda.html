@@ -12,21 +12,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Mooli&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js" defer></script>
+
 </head>
 
 <body class="font-[Montserrat]">
     <header role="banner"
         class="flex flex-col md:flex-row justify-between items-center bg-[#31326F] text-white px-6 py-4 shadow-md flex-wrap gap-3">
         <div class="logo">
-            <svg width="63.654mm" height="15.486mm" version="1.1" viewBox="0 0 63.654 15.486"
+            <svg class="logo-svg" width="63.654mm" height="15.486mm" version="1.1" viewBox="22.225 94.721 63.654 15.486"
                 xmlns="http://www.w3.org/2000/svg">
-                <g transform="translate(-22.225 -94.721)" stroke-width=".26458">
-                    <text x="43.415443" y="105.98149" fill="#000000" font-size="8.8194px" xml:space="preserve">
+
+                <g stroke-width=".26458">
+                    <text id="letrasKeyzone" x="43.415443" y="105.98149" fill="#000000" font-size="8.8194px"
+                        xml:space="preserve">
                         <tspan x="43.415443" y="105.98149" fill="#ef5d5d" font-family="sans-serif" font-size="8.8194px"
-                            font-weight="bold" stroke="#781818" stroke-width=".26458">KeyZone</tspan>
+                            font-weight="bold" stroke="#781818" stroke-width=".26458">KeyZone
+                        </tspan>
                     </text>
-                    <g>
+
+                    <g id="teclado">
                         <rect x="22.225" y="94.721" width="19.018" height="15.486" fill="#f4ccf4" />
                         <g stroke="#be4cba">
                             <rect x="24.602" y="96.555" width="5.9091" height="11.479" fill="#f4ccf4" />
@@ -36,7 +44,8 @@
                             <ellipse cx="28.623" cy="103.65" rx=".45626" ry=".43224" fill="#f4ccf4" />
                         </g>
                     </g>
-                    <g fill="#000080" stroke="#be4cba">
+
+                    <g id="tecla-pequenia" fill="#000080" stroke="#be4cba">
                         <ellipse cx="25.573" cy="105.8" rx=".12007" ry=".56432" />
                         <ellipse cx="26.318" cy="105.8" rx=".12007" ry=".56432" />
                         <ellipse cx="27.086" cy="105.8" rx=".12007" ry=".56432" />
@@ -44,14 +53,14 @@
                         <ellipse cx="28.575" cy="105.8" rx=".12007" ry=".56432" />
                         <ellipse cx="29.368" cy="105.8" rx=".12007" ry=".56432" />
                     </g>
+
                     <g fill="#f4ccf4" stroke="#be4cba">
-                        <rect x="30.64" y="99.066" width="7.9245" height="5.235" />
+                        <rect id="monitor" x="30.64" y="99.066" width="7.9245" height="5.235" />
                         <ellipse cx="34.602" cy="105.99" rx=".45626" ry="1.5489" />
                         <rect x="31.241" y="106.8" width="7.036" height=".72041" />
                     </g>
                 </g>
             </svg>
-
         </div>
 
         <nav class="nav" role="navigation" aria-label="Navegación principal">
@@ -85,6 +94,15 @@
         <h2 class="text-center text-[#00796B] font-semibold text-xl mb-10">
             Teclados disponibles
         </h2>
+
+        <div class="max-w-6xl mx-auto my-10 bg-white rounded-xl shadow-md p-5">
+            <h2 class="text-[#31326F] font-[Mooli] text-2xl mb-4">Comparador</h2>
+
+            <div class="relative w-full" style="height:340px;">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+
         <div class="resultados flex flex-wrap justify-center gap-6">
             <article class="tarjeta bg-[#F8F9FB] rounded-lg shadow-md hover:shadow-lg transition p-4 text-center w-72"
                 aria-label="Teclado Keyzone ACE68">
@@ -94,6 +112,7 @@
                 <h3 class="text-[#31326F] font-semibold text-lg">Teclado Keyzone ACE68</h3>
                 <p class="text-gray-700 mt-1">Switches magnéticos y retroiluminación completa.</p>
                 <span class="font-bold block mt-2 text-[#00695C] dark:text-[#4FFFD7]">89,99 €</span>
+                <a class="btn-ver" href="producto.html">Ver producto</a>
             </article>
 
             <article class="tarjeta bg-[#F8F9FB] rounded-lg shadow-md hover:shadow-lg transition p-4 text-center w-72"
@@ -104,6 +123,7 @@
                 <h3 class="text-[#31326F] font-semibold text-lg">Teclado Keyzone G75 PRO</h3>
                 <p class="text-gray-700 mt-1">Tamaño compacto, ideal para viajar.</p>
                 <span class="font-bold block mt-2 text-[#00695C] dark:text-[#4FFFD7]">59,99 €</span>
+                <a class="btn-ver" href="producto.html">Ver producto</a>
             </article>
 
             <article class="tarjeta bg-[#F8F9FB] rounded-lg shadow-md hover:shadow-lg transition p-4 text-center w-72"
@@ -114,6 +134,7 @@
                 <h3 class="text-[#31326F] font-semibold text-lg">Teclado Keyzone X75 PRO</h3>
                 <p class="text-gray-700 mt-1">Conectividad Bluetooth sin latencia.</p>
                 <span class="font-bold block mt-2 text-[#00695C] dark:text-[#4FFFD7]">99,99 €</span>
+                <a class="btn-ver" href="producto.html">Ver producto</a>
             </article>
 
             <article class="tarjeta bg-[#F8F9FB] rounded-lg shadow-md hover:shadow-lg transition p-4 text-center w-72"
@@ -124,6 +145,7 @@
                 <h3 class="text-[#31326F] font-semibold text-lg">Keyzone K728 PRO</h3>
                 <p class="text-gray-700 mt-1">Switcheo lineal ultra silencioso.</p>
                 <span class="font-bold block mt-2 text-[#00695C] dark:text-[#4FFFD7]">79,99 €</span>
+                <a class="btn-ver" href="producto.html">Ver producto</a>
             </article>
         </div>
     </main>
