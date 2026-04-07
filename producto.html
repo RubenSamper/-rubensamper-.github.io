@@ -11,6 +11,8 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Mooli&display=swap"
     rel="stylesheet">
 </head>
@@ -96,14 +98,28 @@
           </g>
         </svg>
       </a>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Cambiar entre modo claro y oscuro"
+        aria-pressed="false" title="Cambiar entre modo claro y oscuro">
+        <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path fill="currentColor"
+            d="M8 4.75a3.25 3.25 0 1 0 0 6.5a3.25 3.25 0 0 0 0-6.5zm0-4a.5.5 0 0 1 .5.5V2a.5.5 0 0 1-1 0V1.25a.5.5 0 0 1 .5-.5zm0 13.25a.5.5 0 0 1 .5.5V15a.5.5 0 0 1-1 0v-.5a.5.5 0 0 1 .5-.5zm7-7a.5.5 0 0 1-.5.5H14a.5.5 0 0 1 0-1h.5a.5.5 0 0 1 .5.5zm-13 0a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1 0-1H1a.5.5 0 0 1 .5.5zm11.364-4.864a.5.5 0 0 1-.707 0l-.354-.354a.5.5 0 1 1 .707-.707l.354.353a.5.5 0 0 1 0 .708zM3.043 12.157a.5.5 0 0 1-.707 0l-.354-.354a.5.5 0 1 1 .707-.707l.354.353a.5.5 0 0 1 0 .708zm9.9 0a.5.5 0 0 1 0-.708l.354-.353a.5.5 0 1 1 .707.707l-.354.354a.5.5 0 0 1-.707 0zM3.043 3.843a.5.5 0 0 1 0-.708l-.354-.353a.5.5 0 1 1 .707.707l-.354.354a.5.5 0 0 1-.707 0z" />
+        </svg>
+      </button>
     </div>
 
   </header>
 
+  <button id="topBtn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+      class="bi bi-arrow-up" viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5" />
+    </svg>
+  </button>
+
   <main class="producto" role="main">
     <section class="producto-grid">
       <div class="producto-imagen">
-        <a href="img/productos/KeyzoneRGBPro-GRANDE.jpg" target="_blank" rel="noopener"><img
+        <a id="producto-imagen-link" href="img/productos/KeyzoneRGBPro-GRANDE.jpg" target="_blank" rel="noopener"><img id="producto-imagen-principal"
             src="img/productos/KeyzoneRGBPro-MEDIANO.jpg" srcset="
         img/productos/KeyzoneRGBPro-PEQUENIO.jpg 450w,
         img/productos/KeyzoneRGBPro-MEDIANO.jpg 1200w,
@@ -114,15 +130,15 @@
       </div>
 
       <div class="producto-info">
-        <h1>Keyzone RGB Pro</h1>
-        <p class="precio">89,99 €</p>
-        <ul class="caracteristicas">
+        <h1 id="producto-nombre">Keyzone RGB Pro</h1>
+        <p id="producto-precio" class="precio">89,99 €</p>
+        <ul id="producto-caracteristicas" class="caracteristicas">
           <li>Switches mecánicos táctiles</li>
           <li>Iluminación RGB personalizable</li>
           <li>Construcción en aluminio anodizado</li>
           <li>Conectividad USB-C desmontable</li>
         </ul>
-        <button class="btn" aria-label="Añadir Keyzone RGB Pro al carrito">
+        <button id="btn-agregar-carrito" class="btn btn-agregar-carrito" data-id="1" data-nombre="Keyzone RGB Pro" data-precio="89.99" data-imagen="img/productos/KeyzoneRGBPro-PEQUENIO.jpg" aria-label="Añadir Keyzone RGB Pro al carrito">
           <span class="btn-text">Añadir al carrito</span>
           <svg width="8mm" height="8mm" version="1.1" viewBox="0 0 198 181" xmlns="http://www.w3.org/2000/svg">
             <g fill-opacity="0" stroke="#fff" stroke-width="8.9068">
@@ -131,8 +147,6 @@
               <path d="m156.27 92.152h-117.95" />
             </g>
           </svg>
-
-
         </button>
       </div>
     </section>
@@ -140,32 +154,30 @@
     <section class="galeria-producto" aria-label="Colores disponibles del teclado Keyzone RGB Pro">
       <h2>Colores disponibles</h2>
       <div class="miniaturas">
-        <figure>
-          <a href="img/productos/g75color1-GRANDE.jpg" target="_blank" rel="noopener">
-            <img src="img/productos/g75color1-PEQUENIO.jpg" srcset="
-            img/productos/g75color1-PEQUENIO.jpg 450w,
-            img/productos/g75color1-MEDIANO.jpg 1200w
-          " sizes="130px" alt="Keyzone RGB Pro color negro" class="mini" loading="lazy" decoding="async">
-          </a>
-          <figcaption>Negro</figcaption>
-        </figure>
-        <figure><a href="img/productos/g75color2-GRANDE.jpg" target="_blank" rel="noopener">
-            <img src="img/productos/g75color2-PEQUENIO.jpg" srcset="
-            img/productos/g75color2-PEQUENIO.jpg 450w,
-            img/productos/g75color2-MEDIANO.jpg 1200w
-          " sizes="130px" alt="Keyzone RGB Pro negro y rosa" class="mini" loading="lazy" decoding="async">
-          </a>
-          <figcaption>Negro-Rosa</figcaption>
-        </figure>
-        <figure>
-          <a href="img/productos/g75color3-GRANDE.jpg" target="_blank" rel="noopener">
-            <img src="img/productos/g75color3-PEQUENIO.jpg" srcset="
-      img/productos/g75color3-PEQUENIO.jpg 450w,
-      img/productos/g75color3-MEDIANO.jpg 1200w
-    " sizes="130px" alt="Keyzone RGB Pro gradiente glaciar" class="mini" loading="lazy" decoding="async">
-          </a>
-          <figcaption>Gradiente</figcaption>
-        </figure>
+        <button class="color-tab active" data-color="azul" data-image="img/productos/KeyzoneRGBPro-MEDIANO.jpg"
+          data-grande="img/productos/KeyzoneRGBPro-GRANDE.jpg" data-pequenio="img/productos/KeyzoneRGBPro-PEQUENIO.jpg"
+          aria-label="Ver producto en color Azul">
+          <span class="tab-color" style="background-color: #0066FF;"></span>
+          <span>Azul</span>
+        </button>
+        <button class="color-tab" data-color="negro" data-image="img/productos/g75color1-MEDIANO.jpg"
+          data-grande="img/productos/g75color1-GRANDE.jpg" data-pequenio="img/productos/g75color1-PEQUENIO.jpg"
+          aria-label="Ver producto en color Negro">
+          <span class="tab-color" style="background-color: #000000;"></span>
+          <span>Negro</span>
+        </button>
+        <button class="color-tab" data-color="negro-rosa" data-image="img/productos/g75color2-MEDIANO.jpg"
+          data-grande="img/productos/g75color2-GRANDE.jpg" data-pequenio="img/productos/g75color2-PEQUENIO.jpg"
+          aria-label="Ver producto en color Negro-Rosa">
+          <span class="tab-color" style="background-color: #8B0A50;"></span>
+          <span>Negro-Rosa</span>
+        </button>
+        <button class="color-tab" data-color="gradiente" data-image="img/productos/g75color3-MEDIANO.jpg"
+          data-grande="img/productos/g75color3-GRANDE.jpg" data-pequenio="img/productos/g75color3-PEQUENIO.jpg"
+          aria-label="Ver producto en color Gradiente">
+          <span class="tab-color" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></span>
+          <span>Gradiente</span>
+        </button>
       </div>
     </section>
 
@@ -185,7 +197,7 @@
           <!-- <a href="producto.html"
             class="underline font-semibold text-[#31326F] hover:text-[#00796B] dark:text-[#A8FBD3] dark:hover:text-[#4FFFD7]">Ver
             producto</a> -->
-          <a class="btn-ver" href="producto.html">Ver producto</a>
+          <a class="btn-ver" href="producto.html?product=ace68">Ver producto</a>
         </article>
         <article id="producto-destacado2">
           <a href="img/productos/KeyzoneK728PRO-GRANDE.jpg" target="_blank" rel="noopener">
@@ -200,7 +212,7 @@
           <!-- <a href="producto.html"
             class="underline font-semibold text-[#31326F] hover:text-[#00796B] dark:text-[#A8FBD3] dark:hover:text-[#4FFFD7]">Ver
             producto</a> -->
-          <a class="btn-ver" href="producto.html">Ver producto</a>
+          <a class="btn-ver" href="producto.html?product=k728pro">Ver producto</a>
         </article>
       </div>
     </section>

@@ -16,6 +16,10 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Mooli&display=swap"
         rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net" rel="stylesheet">
+    <!-- Script de Bootstrap (necesario para que las pestañas cambien al hacer clic) -->
+    <script src="https://cdn.jsdelivr.net" defer></script>
 </head>
 
 <body class="font-[Montserrat]">
@@ -82,24 +86,70 @@
             <a href="carrito.html" aria-label="Abrir carrito de compras" class="carrito">
                 <img src="img/iconos/carrito.svg" alt="Carrito" class="w-7 h-7">
             </a>
+            <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Cambiar entre modo claro y oscuro"
+                aria-pressed="false" title="Cambiar entre modo claro y oscuro">
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path fill="currentColor"
+                        d="M8 4.75a3.25 3.25 0 1 0 0 6.5a3.25 3.25 0 0 0 0-6.5zm0-4a.5.5 0 0 1 .5.5V2a.5.5 0 0 1-1 0V1.25a.5.5 0 0 1 .5-.5zm0 13.25a.5.5 0 0 1 .5.5V15a.5.5 0 0 1-1 0v-.5a.5.5 0 0 1 .5-.5zm7-7a.5.5 0 0 1-.5.5H14a.5.5 0 0 1 0-1h.5a.5.5 0 0 1 .5.5zm-13 0a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1 0-1H1a.5.5 0 0 1 .5.5zm11.364-4.864a.5.5 0 0 1-.707 0l-.354-.354a.5.5 0 1 1 .707-.707l.354.353a.5.5 0 0 1 0 .708zM3.043 12.157a.5.5 0 0 1-.707 0l-.354-.354a.5.5 0 1 1 .707-.707l.354.353a.5.5 0 0 1 0 .708zm9.9 0a.5.5 0 0 1 0-.708l.354-.353a.5.5 0 1 1 .707.707l-.354.354a.5.5 0 0 1-.707 0zM3.043 3.843a.5.5 0 0 1 0-.708l-.354-.353a.5.5 0 1 1 .707.707l-.354.354a.5.5 0 0 1-.707 0z" />
+                </svg>
+            </button>
         </div>
     </header>
 
-    <figure class="hero-montaje" aria-label="Hero Keyzone">
-        <picture>
-            <source srcset="
-        img/hero/tecladoOpenVerse-PEQUENIO.jpg 450w,
-        img/hero/tecladoOpenVerse-MEDIANO.jpg 1200w,
-        img/hero/tecladoOpenVerse-GRANDE.jpg 2000w
-      " sizes="100vw">
-            <img src="img/hero/tecladoOpenVerse-MEDIANO.jpg" alt="" aria-hidden="true" class="hero-bg" decoding="async">
-        </picture>
+    <figure class="carrusel" aria-label="Hero Keyzone">
+        <div class="hero-images">
+            <picture class="hero-picture active">
+                <source
+                    src="img/hero/tecladoOpenVerse-PEQUENIO.jpg 450w, img/hero/tecladoOpenVerse-MEDIANO.jpg 1200w, img/hero/tecladoOpenVerse-GRANDE.jpg 2000w"
+                    sizes="100vw">
+                <img src="img/hero/tecladoOpenVerse-MEDIANO.jpg" alt="" aria-hidden="true" class="hero-bg"
+                    decoding="async">
+            </picture>
+            <figure>
+                <picture class="hero-picture">
+                    <source
+                        src="img/hero/teclado2-PEQUENIO.jpg 450w, img/hero/teclado2-MEDIANO.jpg 1200w, img/hero/teclado2-GRANDE.jpg 2000w"
+                        sizes="100vw">
+                    <img src="img/hero/teclado2-MEDIANO.jpg" alt="" aria-hidden="true" class="hero-bg" decoding="async">
+                </picture>
+                <picture class="hero-picture">
+                    <source
+                        src="img/hero/teclado3-PEQUENIO.jpg 450w, img/hero/teclado3-MEDIANO.jpg 1200w, img/hero/teclado3-GRANDE.jpg 2000w"
+                        sizes="100vw">
+                    <img src="img/hero/teclado3-PEQUENIO.jpg" alt="" aria-hidden="true" class="hero-bg"
+                        decoding="async">
+                </picture>
+        </div>
+
+        <button class="hero-carousel-btn hero-prev" aria-label="Imagen anterior">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M12 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+            </svg>
+        </button>
+        <button class="hero-carousel-btn hero-next" aria-label="Imagen siguiente">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M4 8a.5.5 0 0 1 .5-.5h7.793L10.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L12.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+            </svg>
+        </button>
+
         <div class="hero-overlay" aria-hidden="true"></div>
 
         <div class="hero-content">
             <h1>Domina cada partida con el teclado perfecto</h1>
             <p>Keyzone te ofrece teclados gaming con switches de alta precisión, iluminación RGB y diseños compactos
                 para rendir al máximo.</p>
+
+            <button type="button" id="hero-leer-mas-btn"
+                class="mt-2 inline-flex items-center gap-2 rounded-md border border-white/70 bg-white/10 px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/20"
+                aria-expanded="false" aria-controls="hero-leer-mas-texto">
+                Leer mas
+            </button>
+            <p id="hero-leer-mas-texto" class="mt-3 text-sm text-white/90" hidden>
+                Nuestros teclados estan pensados para sesiones largas: mejores materiales, menor latencia y perfiles
+                adaptados tanto a gaming competitivo como a productividad diaria.
+            </p>
 
             <a href="producto.html" class="hero-btn">
                 Ver producto destacado
@@ -125,6 +175,13 @@
             </figcaption>
         </div>
     </figure>
+
+    <button id="topBtn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-arrow-up" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5" />
+        </svg>
+    </button>
 
     <section class="destacado text-center py-10 px-6">
         <h2 class="text-[var(--primary)] dark:text-[var(--accent)] font-[Mooli] text-3xl mb-6">Destacado</h2>
@@ -169,6 +226,111 @@
                     <h3 class="text-[var(--primary)] dark:text-[var(--accent)] font-semibold text-lg">Switches</h3>
                     <a class="btn-ver" href="producto.html">Ver producto</a>
                 </article>
+            </div>
+
+            <div class="contenedorAcordeon">
+                <br>
+                <h2>Preguntas frecuentes</h2>
+                <details class="acordeonApartado">
+                    <summary
+                        class="flex justify-between items-center w-full py-4 px-2 font-semibold cursor-pointer list-none">
+                        <span class="preguntaAcordeon">¿Qué tipos de switches ofrecen?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                width="24">
+                                <path d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="acordeonTexto">
+                        Contamos con switches Red (lineales), Blue (clicky) y Brown (táctiles) para adaptarnos a tu
+                        estilo de juego o escritura.
+                    </div>
+                </details>
+
+                <details class="acordeonApartado">
+                    <summary
+                        class="flex justify-between items-center w-full py-4 px-2 font-semibold cursor-pointer list-none">
+                        <span class="preguntaAcordeon">¿Tienen garantía los teclados?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                                width="24">
+                                <path d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="acordeonTexto">
+                        Todos nuestros productos Keyzone cuentan con 2 años de garantía oficial contra defectos de
+                        fábrica.
+                    </div>
+                </details>
+            </div>
+
+        </section>
+
+        <div class="separador" aria-hidden="true"></div>
+
+
+        <section class="home-tabs" aria-label="Información destacada">
+            <h2 class="text-[var(--primary)] dark:text-[var(--accent)] font-[Mooli] text-3xl mb-6 text-center">
+                Explora Keyzone
+            </h2>
+
+            <div class="tabs-list" role="tablist" aria-label="Secciones informativas de Keyzone">
+                <button class="home-tab active" id="tab-novedades" role="tab" type="button" aria-selected="true"
+                    aria-controls="panel-novedades">
+                    Novedades
+                </button>
+                <button class="home-tab" id="tab-ofertas" role="tab" type="button" aria-selected="false"
+                    aria-controls="panel-ofertas">
+                    Ofertas
+                </button>
+                <button class="home-tab" id="tab-guia" role="tab" type="button" aria-selected="false"
+                    aria-controls="panel-guia">
+                    Guia de compra
+                </button>
+            </div>
+
+            <article class="tab-panel active" id="panel-novedades" role="tabpanel" aria-labelledby="tab-novedades">
+                <h3>Lanzamientos de este mes</h3>
+                <p>Descubre los nuevos teclados compactos con switches magneticos y perfiles de sonido mejorados para
+                    gaming competitivo.</p>
+                <a class="btn-ver" href="busqueda.html">Ver novedades</a>
+            </article>
+
+            <article class="tab-panel" id="panel-ofertas" role="tabpanel" aria-labelledby="tab-ofertas" hidden>
+                <h3>Promociones activas</h3>
+                <p>Aprovecha descuentos temporales en modelos seleccionados y envios gratis en compras superiores a 90
+                    euros.</p>
+                <a class="btn-ver" href="producto.html">Ver ofertas</a>
+            </article>
+
+            <article class="tab-panel" id="panel-guia" role="tabpanel" aria-labelledby="tab-guia" hidden>
+                <h3>Que teclado elegir</h3>
+                <p>Si priorizas rapidez, elige switches lineales; para escritura y tacto, switches tactiles con
+                    respuesta equilibrada.</p>
+                <a class="btn-ver" href="contacto.html">Pedir recomendacion</a>
+            </article>
+        </section>
+
+        <div class="separador" aria-hidden="true"></div>
+
+        <section class="simulador-estrellas" aria-label="Simulador de estrellas">
+            <h2 class="text-[var(--primary)] dark:text-[var(--accent)] font-[Mooli] text-3xl mb-4 text-center">
+                Simulador de estrellas
+            </h2>
+            <p id="valoracion-texto" class="simulador-estrellas-texto">Selecciona una puntuacion</p>
+            <div class="simulador-estrellas-botones" role="radiogroup" aria-label="Valorar con estrellas">
+                <button type="button" class="estrella-btn" data-valor="1" role="radio" aria-checked="false"
+                    aria-label="1 estrella">☆</button>
+                <button type="button" class="estrella-btn" data-valor="2" role="radio" aria-checked="false"
+                    aria-label="2 estrellas">☆</button>
+                <button type="button" class="estrella-btn" data-valor="3" role="radio" aria-checked="false"
+                    aria-label="3 estrellas">☆</button>
+                <button type="button" class="estrella-btn" data-valor="4" role="radio" aria-checked="false"
+                    aria-label="4 estrellas">☆</button>
+                <button type="button" class="estrella-btn" data-valor="5" role="radio" aria-checked="false"
+                    aria-label="5 estrellas">☆</button>
             </div>
         </section>
 

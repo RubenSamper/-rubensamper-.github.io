@@ -77,7 +77,7 @@
         </nav>
 
         <div class="flex flex-wrap justify-center items-center gap-2 w-full md:w-auto">
-            <input type="search" placeholder="Buscar..." aria-label="Buscar productos"
+            <input id="busqueda-productos" type="search" placeholder="Buscar..." aria-label="Buscar productos"
                 class="rounded-md px-3 py-2 text-black border border-gray-300 w-3/4 sm:w-48 md:w-56">
             <select aria-label="Seleccionar idioma" class="rounded-md px-2 py-2 text-black border border-gray-300">
                 <option>ES</option>
@@ -86,11 +86,25 @@
             <a href="carrito.html" aria-label="Abrir carrito de compras" class="carrito">
                 <img src="img/iconos/carrito.svg" alt="Icono del carrito de compras" class="w-7 h-7">
             </a>
+            <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Cambiar entre modo claro y oscuro"
+                aria-pressed="false" title="Cambiar entre modo claro y oscuro">
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                    <path fill="currentColor"
+                        d="M8 4.75a3.25 3.25 0 1 0 0 6.5a3.25 3.25 0 0 0 0-6.5zm0-4a.5.5 0 0 1 .5.5V2a.5.5 0 0 1-1 0V1.25a.5.5 0 0 1 .5-.5zm0 13.25a.5.5 0 0 1 .5.5V15a.5.5 0 0 1-1 0v-.5a.5.5 0 0 1 .5-.5zm7-7a.5.5 0 0 1-.5.5H14a.5.5 0 0 1 0-1h.5a.5.5 0 0 1 .5.5zm-13 0a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1 0-1H1a.5.5 0 0 1 .5.5zm11.364-4.864a.5.5 0 0 1-.707 0l-.354-.354a.5.5 0 1 1 .707-.707l.354.353a.5.5 0 0 1 0 .708zM3.043 12.157a.5.5 0 0 1-.707 0l-.354-.354a.5.5 0 1 1 .707-.707l.354.353a.5.5 0 0 1 0 .708zm9.9 0a.5.5 0 0 1 0-.708l.354-.353a.5.5 0 1 1 .707.707l-.354.354a.5.5 0 0 1-.707 0zM3.043 3.843a.5.5 0 0 1 0-.708l-.354-.353a.5.5 0 1 1 .707.707l-.354.354a.5.5 0 0 1-.707 0z" />
+                </svg>
+            </button>
         </div>
     </header>
 
+    <button id="topBtn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-arrow-up" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5" />
+        </svg>
+    </button>
+
     <main class="busqueda py-10 px-6" role="main">
-        <h1 class="text-center text-[#31326F] font-[Mooli] text-3xl mb-10">Resultados de búsqueda: “teclado”</h1>
+        <h1 id="titulo-resultados" class="text-center text-[#31326F] font-[Mooli] text-3xl mb-10">Resultados de búsqueda</h1>
         <h2 class="text-center text-[#00796B] font-semibold text-xl mb-10">
             Teclados disponibles
         </h2>
@@ -112,7 +126,7 @@
                 <h3 class="text-[#31326F] font-semibold text-lg">Teclado Keyzone ACE68</h3>
                 <p class="text-gray-700 mt-1">Switches magnéticos y retroiluminación completa.</p>
                 <span class="font-bold block mt-2 text-[#00695C] dark:text-[#4FFFD7]">89,99 €</span>
-                <a class="btn-ver" href="producto.html">Ver producto</a>
+                <a class="btn-ver" href="producto.html?product=ace68">Ver producto</a>
             </article>
 
             <article class="tarjeta bg-[#F8F9FB] rounded-lg shadow-md hover:shadow-lg transition p-4 text-center w-72"
@@ -123,7 +137,7 @@
                 <h3 class="text-[#31326F] font-semibold text-lg">Teclado Keyzone G75 PRO</h3>
                 <p class="text-gray-700 mt-1">Tamaño compacto, ideal para viajar.</p>
                 <span class="font-bold block mt-2 text-[#00695C] dark:text-[#4FFFD7]">59,99 €</span>
-                <a class="btn-ver" href="producto.html">Ver producto</a>
+                <a class="btn-ver" href="producto.html?product=g75pro">Ver producto</a>
             </article>
 
             <article class="tarjeta bg-[#F8F9FB] rounded-lg shadow-md hover:shadow-lg transition p-4 text-center w-72"
@@ -134,7 +148,7 @@
                 <h3 class="text-[#31326F] font-semibold text-lg">Teclado Keyzone X75 PRO</h3>
                 <p class="text-gray-700 mt-1">Conectividad Bluetooth sin latencia.</p>
                 <span class="font-bold block mt-2 text-[#00695C] dark:text-[#4FFFD7]">99,99 €</span>
-                <a class="btn-ver" href="producto.html">Ver producto</a>
+                <a class="btn-ver" href="producto.html?product=x75pro">Ver producto</a>
             </article>
 
             <article class="tarjeta bg-[#F8F9FB] rounded-lg shadow-md hover:shadow-lg transition p-4 text-center w-72"
@@ -145,7 +159,7 @@
                 <h3 class="text-[#31326F] font-semibold text-lg">Keyzone K728 PRO</h3>
                 <p class="text-gray-700 mt-1">Switcheo lineal ultra silencioso.</p>
                 <span class="font-bold block mt-2 text-[#00695C] dark:text-[#4FFFD7]">79,99 €</span>
-                <a class="btn-ver" href="producto.html">Ver producto</a>
+                <a class="btn-ver" href="producto.html?product=k728pro">Ver producto</a>
             </article>
         </div>
     </main>

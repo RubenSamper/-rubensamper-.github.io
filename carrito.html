@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Mooli&display=swap"
     rel="stylesheet">
+  <script src="js/main.js" defer></script>
 
 </head>
 
@@ -77,6 +78,13 @@
       <a href="carrito.html" aria-label="Abrir carrito de compras" class="carrito">
         <img src="img/iconos/carrito.svg" alt="Icono de carrito de compras" class="w-7 h-7">
       </a>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Cambiar entre modo claro y oscuro"
+        aria-pressed="false" title="Cambiar entre modo claro y oscuro">
+        <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path fill="currentColor"
+            d="M8 4.75a3.25 3.25 0 1 0 0 6.5a3.25 3.25 0 0 0 0-6.5zm0-4a.5.5 0 0 1 .5.5V2a.5.5 0 0 1-1 0V1.25a.5.5 0 0 1 .5-.5zm0 13.25a.5.5 0 0 1 .5.5V15a.5.5 0 0 1-1 0v-.5a.5.5 0 0 1 .5-.5zm7-7a.5.5 0 0 1-.5.5H14a.5.5 0 0 1 0-1h.5a.5.5 0 0 1 .5.5zm-13 0a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1 0-1H1a.5.5 0 0 1 .5.5zm11.364-4.864a.5.5 0 0 1-.707 0l-.354-.354a.5.5 0 1 1 .707-.707l.354.353a.5.5 0 0 1 0 .708zM3.043 12.157a.5.5 0 0 1-.707 0l-.354-.354a.5.5 0 1 1 .707-.707l.354.353a.5.5 0 0 1 0 .708zm9.9 0a.5.5 0 0 1 0-.708l.354-.353a.5.5 0 1 1 .707.707l-.354.354a.5.5 0 0 1-.707 0zM3.043 3.843a.5.5 0 0 1 0-.708l-.354-.353a.5.5 0 1 1 .707.707l-.354.354a.5.5 0 0 1-.707 0z" />
+        </svg>
+      </button>
     </div>
   </header>
 
@@ -86,72 +94,15 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
       <section class="lg:col-span-2 bg-[var(--gray)] rounded-2xl shadow-md p-6">
         <h2 class="text-xl font-semibold mb-4 text-[#31326F]">Productos</h2>
-        <article
-          class="flex flex-col sm:flex-row gap-4 items-start sm:items-center border border-gray-100 rounded-xl p-4">
-          <a href="img/productos/KeyzoneG75pro-GRANDE.jpg" target="_blank" rel="noopener">
-            <img src="img/productos/KeyzoneG75pro-PEQUENIO.jpg" srcset="
-            img/productos/KeyzoneG75pro-PEQUENIO.jpg 450w,
-            img/productos/KeyzoneG75pro-MEDIANO.jpg 1200w
-          " sizes="130px" alt="Teclado Keyzone G75" class="mini" loading="lazy" decoding="async">
-          </a>
-
-          <div class="flex-1">
-            <div class="flex items-start justify-between gap-3">
-              <div>
-                <h3 class="font-semibold text-lg text-gray-900">Keyzone G75 PRO</h3>
-                <p class="text-sm text-gray-500">Switches mecánicos · RGB · USB-C</p>
-              </div>
-
-              <button type="button"
-                class="inline-flex items-center gap-2 text-sm font-semibold text-red-600 hover:text-red-700"
-                aria-label="Eliminar producto de la cesta">
-                <svg width="8mm" height="8mm" version="1.1" viewBox="0 0 198 181" xmlns="http://www.w3.org/2000/svg">
-                  <g fill-opacity="0" stroke="currentColor" stroke-width="8.9216">
-                    <ellipse cx="98.99" cy="90.483" rx="94.519" ry="86.019" />
-                    <path d="m156.24 92.477h-117.91" />
-                  </g>
-                </svg>
-
-              </button>
-            </div>
-
-            <div class="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-              <!-- Cantidad -->
-              <div class="inline-flex items-center gap-2">
-                <label for="qty-1" class="text-sm font-semibold text-gray-700">Cantidad</label>
-                <select id="qty-1" class="border border-gray-300 rounded-md px-2 py-1 text-sm">
-                  <option selected>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                </select>
-              </div>
-
-              <!-- Precio -->
-              <div class="text-right">
-                <p class="text-sm text-gray-500">Precio</p>
-                <p class="text-lg font-bold text-[#00695C]">59,99 €</p>
-              </div>
-            </div>
-          </div>
-        </article>
+        <div class="carrito-productos">
+          <!-- Los productos se cargarán aquí dinámicamente -->
+        </div>
       </section>
 
       <aside class="bg-white rounded-2xl shadow-md p-6 h-fit">
         <h2 class="text-xl font-semibold mb-4 text-[#31326F]">Resumen</h2>
-
-        <div class="space-y-3 text-sm">
-          <div class="flex justify-between">
-            <span class="text-gray-600">Subtotal</span>
-            <span class="font-semibold">59,99 €</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="text-gray-600">Envío</span>
-            <span class="font-semibold">Gratis</span>
-          </div>
-          <div class="border-t pt-3 flex justify-between text-base">
-            <span class="font-semibold">Total</span>
-            <span class="font-bold text-[#00695C]">59,99 €</span>
-          </div>
+        <div class="resumen-carrito">
+          <!-- El resumen se cargará aquí dinámicamente -->
         </div>
 
         <button type="button"
