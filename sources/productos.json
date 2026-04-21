@@ -1,0 +1,87 @@
+{
+  "rgbpro": {
+    "id": "1",
+    "mostrarColores": true,
+    "nombre": "Keyzone RGB Pro",
+    "precio": "89,99 €",
+    "precioNumero": "89.99",
+    "descripcion": "Teclado Keyzone RGB Pro con switches mecanicos e iluminacion RGB",
+    "imagenPeq": "img/productos/KeyzoneRGBPro-PEQUENIO.jpg",
+    "imagenMed": "img/productos/KeyzoneRGBPro-MEDIANO.jpg",
+    "imagenGra": "img/productos/KeyzoneRGBPro-GRANDE.jpg",
+    "caracteristicas": [
+      "Switches mecanicos tactiles",
+      "Iluminacion RGB personalizable",
+      "Construccion en aluminio anodizado",
+      "Conectividad USB-C desmontable"
+    ]
+  },
+  "ace68": {
+    "id": "2",
+    "mostrarColores": true,
+    "nombre": "Teclado Keyzone ACE68",
+    "precio": "89,99 €",
+    "precioNumero": "89.99",
+    "descripcion": "Teclado Keyzone ACE68 con switches magneticos e iluminacion RGB",
+    "imagenPeq": "img/productos/KeyzoneACE68-PEQUENIO.jpg",
+    "imagenMed": "img/productos/KeyzoneACE68-MEDIANO.jpg",
+    "imagenGra": "img/productos/KeyzoneACE68-GRANDE.jpg",
+    "caracteristicas": [
+      "Switches magneticos de alta precision",
+      "Retroiluminacion RGB completa",
+      "Formato compacto 68%",
+      "Conectividad USB-C desmontable"
+    ]
+  },
+  "g75pro": {
+    "id": "3",
+    "mostrarColores": true,
+    "nombre": "Teclado Keyzone G75 PRO",
+    "precio": "59,99 €",
+    "precioNumero": "59.99",
+    "descripcion": "Teclado Keyzone G75 PRO compacto con retroiluminacion RGB",
+    "imagenPeq": "img/productos/KeyzoneG75pro-PEQUENIO.jpg",
+    "imagenMed": "img/productos/KeyzoneG75pro-MEDIANO.jpg",
+    "imagenGra": "img/productos/KeyzoneG75pro-GRANDE.jpg",
+    "caracteristicas": [
+      "Diseno compacto para escritorio pequeno",
+      "Iluminacion RGB configurable",
+      "Switches mecanicos rapidos",
+      "Ideal para viajar"
+    ]
+  },
+  "x75pro": {
+    "id": "4",
+    "mostrarColores": true,
+    "nombre": "Teclado Keyzone X75 PRO",
+    "precio": "99,99 €",
+    "precioNumero": "99.99",
+    "descripcion": "Teclado Keyzone X75 PRO con conectividad Bluetooth y switches mecanicos",
+    "imagenPeq": "img/productos/KeyzoneX75-PEQUENIO.jpg",
+    "imagenMed": "img/productos/KeyzoneX75-MEDIANO.jpg",
+    "imagenGra": "img/productos/KeyzoneX75-GRANDE.jpg",
+    "caracteristicas": [
+      "Conectividad Bluetooth sin latencia",
+      "Switches mecanicos de alto rendimiento",
+      "Perfil gamer avanzado",
+      "Bateria de larga duracion"
+    ]
+  },
+  "k728pro": {
+    "id": "5",
+    "mostrarColores": true,
+    "nombre": "Teclado Keyzone K728 PRO",
+    "precio": "79,99 €",
+    "precioNumero": "79.99",
+    "descripcion": "Teclado Keyzone K728 PRO con switches lineales silenciosos",
+    "imagenPeq": "img/productos/KeyzoneK728PRO-PEQUENIO.jpg",
+    "imagenMed": "img/productos/KeyzoneK728PRO-MEDIANO.jpg",
+    "imagenGra": "img/productos/KeyzoneK728PRO-GRANDE.jpg",
+    "caracteristicas": [
+      "Switches lineales ultra silenciosos",
+      "RGB personalizable",
+      "Construccion robusta",
+      "Excelente para gaming nocturno"
+    ]
+  }
+}

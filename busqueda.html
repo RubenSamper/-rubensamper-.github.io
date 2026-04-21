@@ -8,6 +8,7 @@
         content="Resultados de búsqueda de teclados gaming Keyzone con switches mecánicos e iluminación RGB.">
     <meta name="robots" content="index, follow">
     <title>Resultados de búsqueda | Teclados Gaming Keyzone</title>
+    <link rel="icon" type="image/svg+xml" href="img/logos/logoKeyZone.svg">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Mooli&display=swap"
@@ -22,7 +23,7 @@
 <body class="font-[Montserrat]">
     <header role="banner"
         class="flex flex-col md:flex-row justify-between items-center bg-[#31326F] text-white px-6 py-4 shadow-md flex-wrap gap-3">
-        <div class="logo">
+        <a class="logo" href="index.html" aria-label="Ir a inicio">
             <svg class="logo-svg" width="63.654mm" height="15.486mm" version="1.1" viewBox="22.225 94.721 63.654 15.486"
                 xmlns="http://www.w3.org/2000/svg">
 
@@ -61,14 +62,12 @@
                     </g>
                 </g>
             </svg>
-        </div>
+        </a>
 
         <nav class="nav" role="navigation" aria-label="Navegación principal">
             <ul class="flex flex-wrap justify-center gap-4 font-semibold">
                 <li><a href="index.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Inicio</a></li>
                 <li><a href="busqueda.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Categoría</a>
-                </li>
-                <li><a href="producto.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Producto</a>
                 </li>
                 <li><a href="contacto.html"
                         class="hover:text-[#A8FBD3] inline-flex items-center gap-2 whitespace-nowrap">Contacto</a>
@@ -77,12 +76,6 @@
         </nav>
 
         <div class="flex flex-wrap justify-center items-center gap-2 w-full md:w-auto">
-            <input id="busqueda-productos" type="search" placeholder="Buscar..." aria-label="Buscar productos"
-                class="rounded-md px-3 py-2 text-black border border-gray-300 w-3/4 sm:w-48 md:w-56">
-            <select aria-label="Seleccionar idioma" class="rounded-md px-2 py-2 text-black border border-gray-300">
-                <option>ES</option>
-                <option>EN</option>
-            </select>
             <a href="carrito.html" aria-label="Abrir carrito de compras" class="carrito">
                 <img src="img/iconos/carrito.svg" alt="Icono del carrito de compras" class="w-7 h-7">
             </a>
@@ -95,6 +88,18 @@
             </button>
         </div>
     </header>
+
+    <section class="px-6 pt-6 pb-2" aria-label="Busqueda de productos">
+        <div class="max-w-6xl mx-auto flex justify-center">
+            <form class="w-full max-w-xl" role="search" aria-label="Buscar en categoria">
+                <label for="busqueda-productos" class="block text-sm font-semibold text-[#31326F] mb-2 text-center md:text-left">
+                    Buscar producto
+                </label>
+                <input id="busqueda-productos" type="search" placeholder="Ejemplo: K728 PRO" aria-label="Buscar productos"
+                    class="block w-full rounded-lg px-4 py-3 text-[#102A43] bg-[#F7FAFF] border border-[#7E92B8] shadow-sm placeholder:text-[#5D7193] focus:outline-none focus:ring-2 focus:ring-[#31326F] focus:border-[#31326F]">
+            </form>
+        </div>
+    </section>
 
     <button id="topBtn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
             class="bi bi-arrow-up" viewBox="0 0 16 16">
@@ -117,50 +122,8 @@
             </div>
         </div>
 
-        <div class="resultados flex flex-wrap justify-center gap-6">
-            <article class="tarjeta bg-[#F8F9FB] rounded-lg shadow-md hover:shadow-lg transition p-4 text-center w-72"
-                aria-label="Teclado Keyzone ACE68">
-                <img src="img/productos/KeyzoneACE68-MEDIANO.jpg"
-                    alt="Teclado Keyzone ACE68 con switches magnéticos e iluminación RGB"
-                    class="rounded-md w-full h-48 object-cover mb-3" loading="lazy">
-                <h3 class="text-[#31326F] font-semibold text-lg">Teclado Keyzone ACE68</h3>
-                <p class="text-gray-700 mt-1">Switches magnéticos y retroiluminación completa.</p>
-                <span class="font-bold block mt-2 text-[#00695C] dark:text-[#4FFFD7]">89,99 €</span>
-                <a class="btn-ver" href="producto.html?product=ace68">Ver producto</a>
-            </article>
-
-            <article class="tarjeta bg-[#F8F9FB] rounded-lg shadow-md hover:shadow-lg transition p-4 text-center w-72"
-                aria-label="Teclado Keyzone G75 PRO">
-                <img src="img/productos/KeyzoneG75pro-MEDIANO.jpg"
-                    alt="Teclado Keyzone G75 PRO compacto con retroiluminación RGB"
-                    class="rounded-md w-full h-48 object-cover mb-3" loading="lazy">
-                <h3 class="text-[#31326F] font-semibold text-lg">Teclado Keyzone G75 PRO</h3>
-                <p class="text-gray-700 mt-1">Tamaño compacto, ideal para viajar.</p>
-                <span class="font-bold block mt-2 text-[#00695C] dark:text-[#4FFFD7]">59,99 €</span>
-                <a class="btn-ver" href="producto.html?product=g75pro">Ver producto</a>
-            </article>
-
-            <article class="tarjeta bg-[#F8F9FB] rounded-lg shadow-md hover:shadow-lg transition p-4 text-center w-72"
-                aria-label="Teclado Keyzone X75 PRO">
-                <img src="img/productos/KeyzoneX75-MEDIANO.jpg"
-                    alt="Teclado Keyzone X75 PRO con conectividad Bluetooth y switches mecánicos"
-                    class="rounded-md w-full h-48 object-cover mb-3" loading="lazy">
-                <h3 class="text-[#31326F] font-semibold text-lg">Teclado Keyzone X75 PRO</h3>
-                <p class="text-gray-700 mt-1">Conectividad Bluetooth sin latencia.</p>
-                <span class="font-bold block mt-2 text-[#00695C] dark:text-[#4FFFD7]">99,99 €</span>
-                <a class="btn-ver" href="producto.html?product=x75pro">Ver producto</a>
-            </article>
-
-            <article class="tarjeta bg-[#F8F9FB] rounded-lg shadow-md hover:shadow-lg transition p-4 text-center w-72"
-                aria-label="Teclado Keyzone K728 PRO">
-                <img src="img/productos/KeyzoneK728PRO-MEDIANO.jpg"
-                    alt="Teclado Keyzone K728 PRO con switches lineales silenciosos"
-                    class="rounded-md w-full h-48 object-cover mb-3" loading="lazy">
-                <h3 class="text-[#31326F] font-semibold text-lg">Keyzone K728 PRO</h3>
-                <p class="text-gray-700 mt-1">Switcheo lineal ultra silencioso.</p>
-                <span class="font-bold block mt-2 text-[#00695C] dark:text-[#4FFFD7]">79,99 €</span>
-                <a class="btn-ver" href="producto.html?product=k728pro">Ver producto</a>
-            </article>
+        <div class="resultados flex flex-wrap justify-center gap-6" aria-live="polite">
+            <p class="text-gray-600">Cargando productos...</p>
         </div>
     </main>
 

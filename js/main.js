@@ -91,26 +91,33 @@ function iniciarPestanasHome() {
 }
 
 function iniciarSimuladorEstrellas() {
-    const estrellas = Array.from(document.querySelectorAll(".estrella-btn"));
-    const texto = document.getElementById("valoracion-texto");
+    const bloquesValoracion = Array.from(document.querySelectorAll(".valoracion-producto"));
 
-    if (estrellas.length === 0 || !texto) return;
+    if (bloquesValoracion.length === 0) return;
 
-    function pintar(valor) {
-        estrellas.forEach((estrella, i) => {
-            const activa = i < valor;
-            estrella.textContent = activa ? "★" : "☆";
-            estrella.classList.toggle("activa", activa);
-            estrella.setAttribute("aria-checked", String(activa && i === valor - 1));
-        });
+    bloquesValoracion.forEach((bloque) => {
+        const estrellas = Array.from(bloque.querySelectorAll(".estrella-btn"));
+        const texto = bloque.querySelector(".simulador-estrellas-texto");
+        const nombreProducto = (bloque.getAttribute("data-producto") || "este producto").trim();
 
-        texto.textContent = `Has seleccionado ${valor} estrella${valor > 1 ? "s" : ""}`;
-    }
+        if (estrellas.length === 0 || !texto) return;
 
-    estrellas.forEach((estrella) => {
-        estrella.addEventListener("click", () => {
-            const valor = Number(estrella.getAttribute("data-valor"));
-            pintar(valor);
+        function pintar(valor) {
+            estrellas.forEach((estrella, i) => {
+                const activa = i < valor;
+                estrella.textContent = activa ? "★" : "☆";
+                estrella.classList.toggle("activa", activa);
+                estrella.setAttribute("aria-checked", String(activa && i === valor - 1));
+            });
+
+            texto.textContent = `Has valorado ${nombreProducto} con ${valor} estrella${valor > 1 ? "s" : ""}`;
+        }
+
+        estrellas.forEach((estrella) => {
+            estrella.addEventListener("click", () => {
+                const valor = Number(estrella.getAttribute("data-valor"));
+                pintar(valor);
+            });
         });
     });
 }
@@ -229,6 +236,20 @@ function iniciarComparador() {
     if (!canvas) return;
 
     crearGrafico(canvas);
+}
+
+async function cargarCatalogoProductos() {
+    const respuesta = await fetch("sources/productos.json", { cache: "no-cache" });
+    if (!respuesta.ok) {
+        throw new Error("No se pudo cargar sources/productos.json");
+    }
+
+    const datos = await respuesta.json();
+    if (!datos || typeof datos !== "object" || Object.keys(datos).length === 0) {
+        throw new Error("El catalogo de productos JSON esta vacio o no es valido");
+    }
+
+    return datos;
 }
 
 function crearGrafico(canvas) {
@@ -358,10 +379,24 @@ function iniciarCestaLateral() {
         botonCerrar.addEventListener("click", () => alternarCestaLateral(false));
     }
 
-    panel.addEventListener("click", gestionarAccionesCestaLateral);
+    panel.addEventListener("click", function (e) {
+        e.stopPropagation();
+        gestionarAccionesCestaLateral(e);
+    });
 
     document.addEventListener("keydown", function (e) {
         if (e.key === "Escape" && cestaLateralAbierta) {
+            alternarCestaLateral(false);
+        }
+    });
+
+    document.addEventListener("click", function (e) {
+        if (!cestaLateralAbierta) return;
+
+        const clickEnPanel = panel.contains(e.target);
+        const clickEnBoton = boton.contains(e.target);
+
+        if (!clickEnPanel && !clickEnBoton) {
             alternarCestaLateral(false);
         }
     });
@@ -411,6 +446,76 @@ function mostrarToast(mensaje) {
     mostrarToast.temporizador = setTimeout(() => {
         toast.classList.remove("show");
     }, 2400);
+}
+
+function confirmarAccion(mensaje, opciones = {}) {
+    const titulo = opciones.titulo || "Confirmar accion";
+    const textoConfirmar = opciones.textoConfirmar || "Eliminar";
+    const textoCancelar = opciones.textoCancelar || "Cancelar";
+
+    return new Promise((resolve) => {
+        const modalExistente = document.getElementById("app-confirm-overlay");
+        if (modalExistente) {
+            modalExistente.remove();
+        }
+
+        const elementoActivo = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+
+        const overlay = document.createElement("div");
+        overlay.className = "app-confirm-overlay";
+        overlay.id = "app-confirm-overlay";
+        overlay.innerHTML = `
+            <div class="app-confirm-modal" role="dialog" aria-modal="true" aria-labelledby="app-confirm-title" aria-describedby="app-confirm-message">
+                <h3 id="app-confirm-title">${titulo}</h3>
+                <p id="app-confirm-message">${mensaje}</p>
+                <div class="app-confirm-actions">
+                    <button type="button" class="app-confirm-btn app-confirm-cancel">${textoCancelar}</button>
+                    <button type="button" class="app-confirm-btn app-confirm-accept">${textoConfirmar}</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+        document.body.classList.add("modal-open");
+
+        const botonCancelar = overlay.querySelector(".app-confirm-cancel");
+        const botonAceptar = overlay.querySelector(".app-confirm-accept");
+
+        const alPulsarTecla = (e) => {
+            if (e.key === "Escape") {
+                cerrarModal(false);
+            }
+        };
+
+        const cerrarModal = (resultado) => {
+            document.removeEventListener("keydown", alPulsarTecla);
+            overlay.remove();
+            document.body.classList.remove("modal-open");
+
+            if (elementoActivo) {
+                elementoActivo.focus();
+            }
+
+            resolve(resultado);
+        };
+
+        overlay.addEventListener("click", (e) => {
+            if (e.target === overlay) {
+                cerrarModal(false);
+            }
+        });
+
+        document.addEventListener("keydown", alPulsarTecla);
+
+        if (botonCancelar) {
+            botonCancelar.addEventListener("click", () => cerrarModal(false));
+        }
+
+        if (botonAceptar) {
+            botonAceptar.addEventListener("click", () => cerrarModal(true));
+            botonAceptar.focus();
+        }
+    });
 }
 
 function formatearPrecio(valor) {
@@ -465,7 +570,7 @@ function renderizarCestaLateral() {
     contadorNode.textContent = String(unidades);
 }
 
-function gestionarAccionesCestaLateral(e) {
+async function gestionarAccionesCestaLateral(e) {
     const objetivo = e.target;
     if (!(objetivo instanceof HTMLElement)) return;
 
@@ -488,12 +593,16 @@ function gestionarAccionesCestaLateral(e) {
     }
 
     if (accion === "eliminar") {
-        eliminarDelCarrito(id);
+        await eliminarDelCarrito(id);
         return;
     }
 
     if (producto.cantidad <= 0) {
-        const confirmar = window.confirm(`Seguro que quieres eliminar \"${producto.nombre}\" de la cesta?`);
+        const confirmar = await confirmarAccion(`Seguro que quieres eliminar \"${producto.nombre}\" de la cesta?`, {
+            titulo: "Eliminar producto",
+            textoConfirmar: "Eliminar",
+            textoCancelar: "Cancelar"
+        });
         if (!confirmar) {
             producto.cantidad = 1;
         } else {
@@ -643,17 +752,21 @@ function agregarAlCarrito(id, nombre, precio, imagen) {
 }
 
 // Esta función se encarga de eliminar el producto del carrito
-function eliminarDelCarrito(id) {
+async function eliminarDelCarrito(id) {
     id = String(id);
     let carrito = obtenerCarrito();
-    const producto = carrito.find(item => item.id === id);
+    const producto = carrito.find(item => String(item.id) === id);
 
     if (!producto) return;
 
-    const confirmar = window.confirm(`Seguro que quieres eliminar \"${producto.nombre}\" de la cesta?`);
+    const confirmar = await confirmarAccion(`Seguro que quieres eliminar \"${producto.nombre}\" de la cesta?`, {
+        titulo: "Eliminar producto",
+        textoConfirmar: "Eliminar",
+        textoCancelar: "Cancelar"
+    });
     if (!confirmar) return;
 
-    carrito = carrito.filter(item => item.id !== id);
+    carrito = carrito.filter(item => String(item.id) !== id);
     guardarCarrito(carrito);
     renderizarCestaLateral();
     cargarCarrito();
@@ -661,7 +774,7 @@ function eliminarDelCarrito(id) {
 }
 
 // Cambiar cantidad de producto
-function cambiarCantidad(id, cantidad) {
+async function cambiarCantidad(id, cantidad) {
     id = String(id);
     let carrito = obtenerCarrito();
     const producto = carrito.find(item => item.id === id);
@@ -669,13 +782,24 @@ function cambiarCantidad(id, cantidad) {
     if (producto) {
         producto.cantidad = parseInt(cantidad);
         if (producto.cantidad <= 0) {
-            eliminarDelCarrito(id);
+            await eliminarDelCarrito(id);
         } else {
             guardarCarrito(carrito);
             renderizarCestaLateral();
             cargarCarrito();
         }
     }
+}
+
+async function cambiarCantidadConDelta(id, delta) {
+    id = String(id);
+    const carrito = obtenerCarrito();
+    const producto = carrito.find(item => String(item.id) === id);
+
+    if (!producto) return;
+
+    const nuevaCantidad = Number(producto.cantidad) + Number(delta);
+    await cambiarCantidad(id, nuevaCantidad);
 }
 
 // Cargar carrito en la página
@@ -730,15 +854,12 @@ function cargarCarrito() {
                     
                     <div class="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                         <div class="inline-flex items-center gap-2">
-                            <label for="qty-${producto.id}" class="text-sm font-semibold text-gray-700">Cantidad</label>
-                            <select id="qty-${producto.id}" class="border border-gray-300 rounded-md px-2 py-1 text-sm" 
-                                onchange="cambiarCantidad('${producto.id}', this.value)">
-                                <option value="1" ${producto.cantidad === 1 ? 'selected' : ''}>1</option>
-                                <option value="2" ${producto.cantidad === 2 ? 'selected' : ''}>2</option>
-                                <option value="3" ${producto.cantidad === 3 ? 'selected' : ''}>3</option>
-                                <option value="4" ${producto.cantidad === 4 ? 'selected' : ''}>4</option>
-                                <option value="5" ${producto.cantidad === 5 ? 'selected' : ''}>5</option>
-                            </select>
+                            <span class="text-sm font-semibold text-gray-700">Cantidad</span>
+                            <div class="cesta-item-acciones" role="group" aria-label="Control de cantidad">
+                                <button type="button" aria-label="Restar cantidad" onclick="cambiarCantidadConDelta('${producto.id}', -1)">-</button>
+                                <span>${producto.cantidad}</span>
+                                <button type="button" aria-label="Sumar cantidad" onclick="cambiarCantidadConDelta('${producto.id}', 1)">+</button>
+                            </div>
                         </div>
                         
                         <div class="text-right">
@@ -794,13 +915,42 @@ function inicializarEventosCarrito() {
 }
 
 // Búsqueda real de productos en la página de búsqueda
-function iniciarBusquedaProductos() {
+async function iniciarBusquedaProductos() {
     const paginaBusqueda = document.querySelector("main.busqueda");
     if (!paginaBusqueda) return;
 
     const inputBusqueda = document.getElementById("busqueda-productos") || document.querySelector('header input[type="search"]');
-    const tarjetas = Array.from(document.querySelectorAll(".resultados .tarjeta"));
+    const contenedorResultados = document.querySelector(".resultados");
     const tituloResultados = document.getElementById("titulo-resultados");
+
+    if (contenedorResultados) {
+        try {
+            const productos = await cargarCatalogoProductos();
+            const tarjetasHtml = Object.entries(productos).map(([clave, producto]) => {
+                const descripcionCorta = Array.isArray(producto.caracteristicas) && producto.caracteristicas.length > 0
+                    ? producto.caracteristicas[0]
+                    : producto.descripcion;
+
+                return `
+                    <article class="tarjeta bg-[#F8F9FB] rounded-lg shadow-md hover:shadow-lg transition p-4 text-center w-72" aria-label="${producto.nombre}">
+                        <img src="${producto.imagenMed}" alt="${producto.descripcion}" class="rounded-md w-full h-48 object-cover mb-3" loading="lazy">
+                        <h3 class="text-[#31326F] font-semibold text-lg">${producto.nombre}</h3>
+                        <p class="text-gray-700 mt-1">${descripcionCorta}</p>
+                        <span class="font-bold block mt-2 text-[#004d44] dark:text-[#4FFFD7]">${producto.precio}</span>
+                        <a class="btn-ver" href="producto.html?product=${clave}">Ver producto</a>
+                    </article>
+                `;
+            }).join("");
+
+            contenedorResultados.innerHTML = tarjetasHtml;
+        } catch (error) {
+            contenedorResultados.innerHTML = '<p class="text-red-700 font-semibold">No se pudieron cargar los productos desde JSON.</p>';
+            console.error(error);
+            return;
+        }
+    }
+
+    const tarjetas = Array.from(document.querySelectorAll(".resultados .tarjeta"));
 
     if (!inputBusqueda || tarjetas.length === 0) return;
 
@@ -840,96 +990,38 @@ function iniciarBusquedaProductos() {
 }
 
 // Carga dinámica de producto según parámetro URL
-function iniciarProductoDinamico() {
+async function iniciarProductoDinamico() {
     const paginaProducto = document.querySelector("main.producto");
     if (!paginaProducto) return;
 
-    const productos = {
-        rgbpro: {
-            id: "1",
-            nombre: "Keyzone RGB Pro",
-            precio: "89,99 €",
-            precioNumero: "89.99",
-            descripcion: "Teclado Keyzone RGB Pro con switches mecánicos e iluminación RGB",
-            imagenPeq: "img/productos/KeyzoneRGBPro-PEQUENIO.jpg",
-            imagenMed: "img/productos/KeyzoneRGBPro-MEDIANO.jpg",
-            imagenGra: "img/productos/KeyzoneRGBPro-GRANDE.jpg",
-            caracteristicas: [
-                "Switches mecánicos táctiles",
-                "Iluminación RGB personalizable",
-                "Construcción en aluminio anodizado",
-                "Conectividad USB-C desmontable"
-            ]
-        },
-        ace68: {
-            id: "2",
-            nombre: "Teclado Keyzone ACE68",
-            precio: "89,99 €",
-            precioNumero: "89.99",
-            descripcion: "Teclado Keyzone ACE68 con switches magnéticos e iluminación RGB",
-            imagenPeq: "img/productos/KeyzoneACE68-PEQUENIO.jpg",
-            imagenMed: "img/productos/KeyzoneACE68-MEDIANO.jpg",
-            imagenGra: "img/productos/KeyzoneACE68-GRANDE.jpg",
-            caracteristicas: [
-                "Switches magnéticos de alta precisión",
-                "Retroiluminación RGB completa",
-                "Formato compacto 68%",
-                "Conectividad USB-C desmontable"
-            ]
-        },
-        g75pro: {
-            id: "3",
-            nombre: "Teclado Keyzone G75 PRO",
-            precio: "59,99 €",
-            precioNumero: "59.99",
-            descripcion: "Teclado Keyzone G75 PRO compacto con retroiluminación RGB",
-            imagenPeq: "img/productos/KeyzoneG75pro-PEQUENIO.jpg",
-            imagenMed: "img/productos/KeyzoneG75pro-MEDIANO.jpg",
-            imagenGra: "img/productos/KeyzoneG75pro-GRANDE.jpg",
-            caracteristicas: [
-                "Diseño compacto para escritorio pequeño",
-                "Iluminación RGB configurable",
-                "Switches mecánicos rápidos",
-                "Ideal para viajar"
-            ]
-        },
-        x75pro: {
-            id: "4",
-            nombre: "Teclado Keyzone X75 PRO",
-            precio: "99,99 €",
-            precioNumero: "99.99",
-            descripcion: "Teclado Keyzone X75 PRO con conectividad Bluetooth y switches mecánicos",
-            imagenPeq: "img/productos/KeyzoneX75-PEQUENIO.jpg",
-            imagenMed: "img/productos/KeyzoneX75-MEDIANO.jpg",
-            imagenGra: "img/productos/KeyzoneX75-GRANDE.jpg",
-            caracteristicas: [
-                "Conectividad Bluetooth sin latencia",
-                "Switches mecánicos de alto rendimiento",
-                "Perfil gamer avanzado",
-                "Batería de larga duración"
-            ]
-        },
-        k728pro: {
-            id: "5",
-            nombre: "Teclado Keyzone K728 PRO",
-            precio: "79,99 €",
-            precioNumero: "79.99",
-            descripcion: "Teclado Keyzone K728 PRO con switches lineales silenciosos",
-            imagenPeq: "img/productos/KeyzoneK728PRO-PEQUENIO.jpg",
-            imagenMed: "img/productos/KeyzoneK728PRO-MEDIANO.jpg",
-            imagenGra: "img/productos/KeyzoneK728PRO-GRANDE.jpg",
-            caracteristicas: [
-                "Switches lineales ultra silenciosos",
-                "RGB personalizable",
-                "Construcción robusta",
-                "Excelente para gaming nocturno"
-            ]
+    let productos;
+    try {
+        productos = await cargarCatalogoProductos();
+    } catch (error) {
+        const nombre = document.getElementById("producto-nombre");
+        const precio = document.getElementById("producto-precio");
+        const lista = document.getElementById("producto-caracteristicas");
+
+        if (nombre) nombre.textContent = "Error al cargar producto";
+        if (precio) precio.textContent = "";
+        if (lista) {
+            lista.innerHTML = "<li>No se pudo cargar el catalogo desde JSON.</li>";
         }
-    };
+
+        console.error(error);
+        return;
+    }
 
     const params = new URLSearchParams(window.location.search);
     const productKey = params.get("product") || "rgbpro";
-    const producto = productos[productKey] || productos.rgbpro;
+    const productoPorDefecto = Object.values(productos)[0];
+    const producto = productos[productKey] || productoPorDefecto;
+    if (!producto) return;
+    const claveProductoActual = productos[productKey] ? productKey : Object.keys(productos)[0];
+    const galeriaColores = document.querySelector(".galeria-producto");
+    const miniaturasColores = galeriaColores ? galeriaColores.querySelector(".miniaturas") : null;
+    const mostrarColores = producto.mostrarColores === true;
+    const mostrarMultiplesColores = claveProductoActual === "rgbpro";
 
     const nombre = document.getElementById("producto-nombre");
     const precio = document.getElementById("producto-precio");
@@ -953,6 +1045,75 @@ function iniciarProductoDinamico() {
 
     if (enlaceImagen) {
         enlaceImagen.href = producto.imagenGra;
+    }
+
+    if (galeriaColores) {
+        if (miniaturasColores) {
+            const tabsColor = Array.from(miniaturasColores.querySelectorAll(".color-tab"));
+
+            tabsColor.forEach((tab) => {
+                const etiqueta = tab.querySelector("span:last-child");
+                const muestra = tab.querySelector(".tab-color");
+
+                if (etiqueta && !etiqueta.dataset.originalLabel) {
+                    etiqueta.dataset.originalLabel = etiqueta.textContent || "";
+                }
+
+                if (muestra && !muestra.dataset.originalStyle) {
+                    muestra.dataset.originalStyle = muestra.getAttribute("style") || "";
+                }
+            });
+
+            if (mostrarMultiplesColores) {
+                tabsColor.forEach((tab) => {
+                    const etiqueta = tab.querySelector("span:last-child");
+                    const muestra = tab.querySelector(".tab-color");
+
+                    tab.hidden = false;
+                    tab.disabled = false;
+                    tab.style.display = "";
+
+                    if (etiqueta?.dataset.originalLabel) {
+                        etiqueta.textContent = etiqueta.dataset.originalLabel;
+                    }
+
+                    if (muestra) {
+                        const estiloOriginal = muestra.dataset.originalStyle || "";
+                        if (estiloOriginal) {
+                            muestra.setAttribute("style", estiloOriginal);
+                        }
+                    }
+                });
+            } else if (tabsColor.length > 0) {
+                const tabUnica = tabsColor[0];
+                const etiquetaUnica = tabUnica.querySelector("span:last-child");
+                const muestraUnica = tabUnica.querySelector(".tab-color");
+
+                tabsColor.forEach((tab, index) => {
+                    tab.hidden = index !== 0;
+                    tab.disabled = index !== 0;
+                    tab.classList.toggle("active", index === 0);
+                    tab.style.display = index === 0 ? "" : "none";
+                });
+
+                tabUnica.setAttribute("data-color", "unico");
+                tabUnica.setAttribute("data-image", producto.imagenMed);
+                tabUnica.setAttribute("data-grande", producto.imagenGra);
+                tabUnica.setAttribute("data-pequenio", producto.imagenPeq);
+                tabUnica.setAttribute("aria-label", "Color unico disponible");
+
+                if (etiquetaUnica) {
+                    etiquetaUnica.textContent = "Unico";
+                }
+
+                if (muestraUnica) {
+                    muestraUnica.setAttribute("style", "background-color: #31326F;");
+                }
+            }
+        }
+
+        galeriaColores.hidden = !mostrarColores;
+        galeriaColores.setAttribute("aria-hidden", mostrarColores ? "false" : "true");
     }
 
     if (botonCarrito) {

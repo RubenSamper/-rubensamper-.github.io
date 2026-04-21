@@ -8,6 +8,7 @@
         content="Keyzone ofrece teclados gaming con switches mecánicos, retroiluminación RGB y diseños compactos.">
     <meta name="robots" content="index, follow">
     <title>Keyzone | Teclados Gaming con Switches Mecánicos RGB</title>
+    <link rel="icon" type="image/svg+xml" href="img/logos/logoKeyZone.svg">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -23,9 +24,9 @@
 </head>
 
 <body class="font-[Montserrat]">
-    <header class="header flex flex-col md:flex-row justify-between items-center px-6 py-4 shadow-md flex-wrap gap-3">
+    <header class="header" role="banner">
 
-        <div class="logo">
+        <a class="logo" href="index.html" aria-label="Ir a inicio">
             <svg class="logo-svg" width="63.654mm" height="15.486mm" version="1.1" viewBox="22.225 94.721 63.654 15.486"
                 xmlns="http://www.w3.org/2000/svg">
 
@@ -64,25 +65,18 @@
                     </g>
                 </g>
             </svg>
-        </div>
+        </a>
 
         <nav class="nav" role="navigation" aria-label="Navegación principal">
-            <ul class="flex flex-wrap justify-center gap-4 font-semibold">
+            <ul class="font-semibold">
                 <li><a href="index.html" class="hover:text-[#A8FBD3]">Inicio</a></li>
                 <li><a href="busqueda.html" class="hover:text-[#A8FBD3]">Categoría</a></li>
-                <li><a href="producto.html" class="hover:text-[#A8FBD3]">Producto</a></li>
                 <li><a href="contacto.html"
                         class="hover:text-[#A8FBD3] inline-flex items-center gap-2 whitespace-nowrap">Contacto</a></li>
             </ul>
         </nav>
 
-        <div class="flex flex-wrap justify-center items-center gap-2 w-full md:w-auto">
-            <input type="search" placeholder="Buscar..."
-                class="rounded-md px-3 py-2 text-black border border-gray-300 w-3/4 sm:w-48 md:w-56">
-            <select aria-label="Seleccionar idioma" class="rounded-md px-2 py-2 text-black border border-gray-300">
-                <option>ES</option>
-                <option>EN</option>
-            </select>
+        <div>
             <a href="carrito.html" aria-label="Abrir carrito de compras" class="carrito">
                 <img src="img/iconos/carrito.svg" alt="Carrito" class="w-7 h-7">
             </a>
@@ -142,7 +136,7 @@
                 para rendir al máximo.</p>
 
             <button type="button" id="hero-leer-mas-btn"
-                class="mt-2 inline-flex items-center gap-2 rounded-md border border-white/70 bg-white/10 px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/20"
+                class="mt-2 inline-flex items-center gap-2 rounded-md border border-white bg-black/45 px-3 py-2 text-sm font-semibold text-[#F7FFF8] shadow-[0_0_10px_rgba(0,0,0,0.45)] transition hover:bg-black/60"
                 aria-expanded="false" aria-controls="hero-leer-mas-texto">
                 Leer mas
             </button>
@@ -199,7 +193,7 @@
         <section class="categorias text-center py-10 px-6 reveal">
             <h2 class="text-[var(--primary)] dark:text-[var(--accent)] font-[Mooli] text-3xl mb-6">Categorías</h2>
 
-            <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 mt-6 max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6 mt-6 max-w-6xl mx-auto">
                 <article id="categoria-mecanico"
                     class="bg-white dark:bg-[var(--gray)] rounded-xl shadow-md hover:shadow-lg transition p-4">
                     <img src="img/secciones/tecladomecanico.jpg" alt="Teclados mecánicos"
@@ -217,14 +211,7 @@
                         class="rounded-lg mb-3 w-full h-48 object-cover">
                     <h3 class="text-[var(--primary)] dark:text-[var(--accent)] font-semibold text-lg">Teclados Hall
                         Effect</h3>
-                    <a class="btn-ver" href="producto.html">Ver producto</a>
-                </article>
-
-                <article id="categoria-switch"
-                    class="bg-white dark:bg-[var(--gray)] rounded-xl shadow-md hover:shadow-lg transition p-4">
-                    <img src="img/secciones/switch.jpg" alt="Switches" class="rounded-lg mb-3 w-full h-48 object-cover">
-                    <h3 class="text-[var(--primary)] dark:text-[var(--accent)] font-semibold text-lg">Switches</h3>
-                    <a class="btn-ver" href="producto.html">Ver producto</a>
+                    <a class="btn-ver" href="producto.html?product=ace68">Ver producto</a>
                 </article>
             </div>
 
@@ -311,27 +298,6 @@
                     respuesta equilibrada.</p>
                 <a class="btn-ver" href="contacto.html">Pedir recomendacion</a>
             </article>
-        </section>
-
-        <div class="separador" aria-hidden="true"></div>
-
-        <section class="simulador-estrellas" aria-label="Simulador de estrellas">
-            <h2 class="text-[var(--primary)] dark:text-[var(--accent)] font-[Mooli] text-3xl mb-4 text-center">
-                Simulador de estrellas
-            </h2>
-            <p id="valoracion-texto" class="simulador-estrellas-texto">Selecciona una puntuacion</p>
-            <div class="simulador-estrellas-botones" role="radiogroup" aria-label="Valorar con estrellas">
-                <button type="button" class="estrella-btn" data-valor="1" role="radio" aria-checked="false"
-                    aria-label="1 estrella">☆</button>
-                <button type="button" class="estrella-btn" data-valor="2" role="radio" aria-checked="false"
-                    aria-label="2 estrellas">☆</button>
-                <button type="button" class="estrella-btn" data-valor="3" role="radio" aria-checked="false"
-                    aria-label="3 estrellas">☆</button>
-                <button type="button" class="estrella-btn" data-valor="4" role="radio" aria-checked="false"
-                    aria-label="4 estrellas">☆</button>
-                <button type="button" class="estrella-btn" data-valor="5" role="radio" aria-checked="false"
-                    aria-label="5 estrellas">☆</button>
-            </div>
         </section>
 
         <div class="separador" aria-hidden="true"></div>

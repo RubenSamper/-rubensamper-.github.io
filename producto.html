@@ -8,6 +8,7 @@
     content="Keyzone RGB Pro, teclado gaming con switches mecánicos e iluminación RGB personalizable.">
   <meta name="robots" content="index, follow">
   <title>Keyzone RGB Pro | Teclado Gaming con Switches Mecánicos RGB</title>
+  <link rel="icon" type="image/svg+xml" href="img/logos/logoKeyZone.svg">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/styles.css">
@@ -20,9 +21,9 @@
 <body class="font-[Montserrat]">
 
   <header role="banner"
-    class="flex flex-col md:flex-row justify-between items-center bg-[#31326F] text-white px-6 py-4 shadow-md flex-wrap gap-3">
+    class="flex flex-col md:flex-row justify-center items-center bg-[#31326F] text-white px-6 py-4 shadow-md flex-wrap gap-5 md:gap-10 text-center border-b border-white/15">
 
-    <div class="logo">
+    <a class="logo" href="index.html" aria-label="Ir a inicio">
       <svg class="logo-svg" width="63.654mm" height="15.486mm" version="1.1" viewBox="22.225 94.721 63.654 15.486"
         xmlns="http://www.w3.org/2000/svg">
 
@@ -60,13 +61,12 @@
           </g>
         </g>
       </svg>
-    </div>
+    </a>
 
-    <nav class="nav" role="navigation" aria-label="Navegación principal">
-      <ul class="flex flex-wrap justify-center gap-4 font-semibold">
+    <nav class="nav w-full md:w-auto" role="navigation" aria-label="Navegación principal">
+      <ul class="flex flex-wrap justify-center gap-5 font-semibold">
         <li><a href="index.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Inicio</a></li>
         <li><a href="busqueda.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Categoría</a></li>
-        <li><a href="producto.html" class="hover:text-[#A8FBD3] focus-visible:outline-[#A8FBD3]">Producto</a></li>
 
         <li>
           <a href="contacto.html" class="hover:text-[#A8FBD3] inline-flex items-center gap-2 whitespace-nowrap">
@@ -76,13 +76,7 @@
       </ul>
     </nav>
 
-    <div class="flex flex-wrap justify-center items-center gap-2 w-full md:w-auto">
-      <input type="search" placeholder="Buscar..." aria-label="Buscar productos"
-        class="rounded-md px-3 py-2 text-black border border-gray-300 w-3/4 sm:w-48 md:w-56">
-      <select aria-label="Seleccionar idioma" class="rounded-md px-2 py-2 text-black border border-gray-300">
-        <option>ES</option>
-        <option>EN</option>
-      </select>
+    <div class="flex flex-wrap justify-center items-center gap-3 w-full mx-auto">
       <a href="carrito.html" aria-label="Abrir carrito de compras" class="carrito">
         <svg width="30px" height="30px" version="1.1" viewBox="0 0 198.09 180.94" xmlns="http://www.w3.org/2000/svg">
           <g transform="translate(-.0011797 -.040919)" fill-opacity="0" stroke="currentColor">
@@ -138,6 +132,16 @@
           <li>Construcción en aluminio anodizado</li>
           <li>Conectividad USB-C desmontable</li>
         </ul>
+        <div class="valoracion-producto" data-producto="Keyzone RGB Pro" aria-label="Valorar Keyzone RGB Pro">
+          <p class="simulador-estrellas-texto">Valora este producto</p>
+          <div class="simulador-estrellas-botones" role="radiogroup" aria-label="Valorar Keyzone RGB Pro">
+            <button type="button" class="estrella-btn" data-valor="1" role="radio" aria-checked="false" aria-label="1 estrella">☆</button>
+            <button type="button" class="estrella-btn" data-valor="2" role="radio" aria-checked="false" aria-label="2 estrellas">☆</button>
+            <button type="button" class="estrella-btn" data-valor="3" role="radio" aria-checked="false" aria-label="3 estrellas">☆</button>
+            <button type="button" class="estrella-btn" data-valor="4" role="radio" aria-checked="false" aria-label="4 estrellas">☆</button>
+            <button type="button" class="estrella-btn" data-valor="5" role="radio" aria-checked="false" aria-label="5 estrellas">☆</button>
+          </div>
+        </div>
         <button id="btn-agregar-carrito" class="btn btn-agregar-carrito" data-id="1" data-nombre="Keyzone RGB Pro" data-precio="89.99" data-imagen="img/productos/KeyzoneRGBPro-PEQUENIO.jpg" aria-label="Añadir Keyzone RGB Pro al carrito">
           <span class="btn-text">Añadir al carrito</span>
           <svg width="8mm" height="8mm" version="1.1" viewBox="0 0 198 181" xmlns="http://www.w3.org/2000/svg">
@@ -194,6 +198,9 @@
               decoding="async"></a>
           <h3>Teclado Keyzone ACE68</h3>
           <p>Switches magnéticos y retroiluminación completa.</p>
+          <div class="valoracion-producto" data-producto="Keyzone ACE68" aria-label="Valorar Keyzone ACE68">
+            <p class="simulador-estrellas-texto">Valora este producto</p>
+          </div>
           <!-- <a href="producto.html"
             class="underline font-semibold text-[#31326F] hover:text-[#00796B] dark:text-[#A8FBD3] dark:hover:text-[#4FFFD7]">Ver
             producto</a> -->
@@ -209,6 +216,9 @@
               decoding="async"></a>
           <h3>Teclado Keyzone K728 PRO</h3>
           <p>Switcheo lineal ultra silencioso.</p>
+          <div class="valoracion-producto" data-producto="Keyzone K728 PRO" aria-label="Valorar Keyzone K728 PRO">
+            <p class="simulador-estrellas-texto">Valora este producto</p>
+          </div>
           <!-- <a href="producto.html"
             class="underline font-semibold text-[#31326F] hover:text-[#00796B] dark:text-[#A8FBD3] dark:hover:text-[#4FFFD7]">Ver
             producto</a> -->
