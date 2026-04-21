@@ -1,5 +1,6 @@
 let categorias = document.querySelector('.categorias');
 const CLAVE_TEMA = "tema-preferencia";
+aplicarTemaInicialTemprano();
 
 let io = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -19,6 +20,8 @@ function onReady(initFn) {
     document.addEventListener("DOMContentLoaded", initFn);
 }
 
+
+
 // Inicio general de modulos por pagina
 onReady(iniciarControlTema);
 onReady(iniciarPestanasHome);
@@ -27,10 +30,24 @@ onReady(iniciarLeerMasHome);
 onReady(iniciarComparador);
 onReady(iniciarCestaLateral);
 onReady(iniciarPestanasColorProducto);
+onReady(iniciarIntercambioMovilProducto);
 onReady(iniciarFormularioBoletin);
 onReady(inicializarEventosCarrito);
 onReady(iniciarBusquedaProductos);
 onReady(iniciarProductoDinamico);
+
+function aplicarTemaInicialTemprano() {
+    try {
+        const mediaTema = window.matchMedia("(prefers-color-scheme: dark)");
+        const temaGuardado = localStorage.getItem(CLAVE_TEMA);
+        const temaInicial = temaGuardado || (mediaTema.matches ? "dark" : "light");
+
+        aplicarTema(temaInicial, Boolean(temaGuardado));
+    } catch {
+        document.documentElement.setAttribute("data-theme", "light");
+        document.documentElement.style.colorScheme = "light";
+    }
+}
 
 function iniciarControlTema() {
     const boton = document.getElementById("theme-toggle");
@@ -139,7 +156,9 @@ function iniciarLeerMasHome() {
 
 function aplicarTema(tema, forzar) {
     const temaSeguro = tema === "dark" ? "dark" : "light";
+    const raiz = document.documentElement;
     const boton = document.getElementById("theme-toggle");
+    const preloadStyle = document.getElementById("theme-preload-style");
     const styleId = "theme-runtime-style";
     const styleRuntime = document.getElementById(styleId) || (() => {
         const style = document.createElement("style");
@@ -152,7 +171,12 @@ function aplicarTema(tema, forzar) {
         return href.includes("css/styles.css");
     }) || null;
 
+    // Evita parpadeos al alternar tema: bloquea transiciones durante un frame.
+    raiz.classList.add("theme-switching");
+
     document.documentElement.setAttribute("data-theme", temaSeguro);
+    document.documentElement.style.colorScheme = temaSeguro;
+    if (preloadStyle) preloadStyle.remove();
 
     if (forzar) {
         localStorage.setItem(CLAVE_TEMA, temaSeguro);
@@ -229,6 +253,12 @@ function aplicarTema(tema, forzar) {
     boton.setAttribute("title", etiqueta);
     boton.setAttribute("aria-label", etiqueta);
     boton.setAttribute("aria-pressed", temaSeguro === "dark" ? "true" : "false");
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            raiz.classList.remove("theme-switching");
+        });
+    });
 }
 
 function iniciarComparador() {
@@ -646,6 +676,46 @@ function iniciarPestanasColorProducto() {
     }
 }
 
+function iniciarIntercambioMovilProducto() {
+    const paginaProducto = document.querySelector("main.producto");
+    const productoGrid = document.querySelector("main.producto .producto-grid");
+    const productoInfo = document.querySelector("main.producto .producto-info");
+    const valoracion = productoInfo ? productoInfo.querySelector(":scope > .valoracion-producto") : null;
+    const botonCarrito = document.getElementById("btn-agregar-carrito");
+    const galeria = document.querySelector("main.producto > .galeria-producto");
+
+    if (!paginaProducto || !productoGrid || !productoInfo || !valoracion || !botonCarrito || !galeria) {
+        return;
+    }
+
+    const mediaMovil = window.matchMedia("(max-width: 768px)");
+
+    const aplicarOrden = () => {
+        if (mediaMovil.matches) {
+            productoInfo.insertBefore(galeria, botonCarrito);
+            productoInfo.appendChild(valoracion);
+        } else {
+            const seccionRecomendados = document.querySelector("main.producto > .recomendados");
+
+            productoInfo.insertBefore(valoracion, botonCarrito);
+
+            if (seccionRecomendados) {
+                paginaProducto.insertBefore(galeria, seccionRecomendados);
+            } else {
+                paginaProducto.appendChild(galeria);
+            }
+        }
+    };
+
+    aplicarOrden();
+
+    if (typeof mediaMovil.addEventListener === "function") {
+        mediaMovil.addEventListener("change", aplicarOrden);
+    } else if (typeof mediaMovil.addListener === "function") {
+        mediaMovil.addListener(aplicarOrden);
+    }
+}
+
 // Carrusel de imágenes del Hero
 let heroCarouselIndex = 0;
 const heroPictures = document.querySelectorAll('.hero-picture');
@@ -874,7 +944,7 @@ function cargarCarrito() {
 
     carritoContainer.innerHTML = html;
 
-    // Actualizar resumen
+    // Actualiza
     if (resumenContainer) {
         resumenContainer.innerHTML = `
             <div class="space-y-3 text-sm">
